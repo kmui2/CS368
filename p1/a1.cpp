@@ -1,16 +1,16 @@
 ////////////////////////////////////////////////////////////////////////////////
 // File Name:      a1.cpp
 //
-// Author:         <Your Name>
-// CS email:       <Your CS email>
+// Author:         Kevin Mui
+// CS email:       kmui@cs.wisc.edu
 //
 // Description:    A program that outputs information about myself
 //                 and repeats a string.
 //
-// Sources:        <Your sources, if any>
+// Sources:        Assignment Instructions
 //
 // URL(s) of sources:
-//                 <URLs of your sources, if any>
+//                 None>
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
@@ -26,12 +26,12 @@ int main() {
 	std::cout << "Number of times to loop: ";
 	
 	int loops;
-	std::cin << loops;
-	std::cout << "\n";
+	std::cin >> loops;
 
 	int i;
 	for (i = 0; i < loops; i++)
 		std::cout << "-=-";
+	std::cout << "\n";
 
 	return 0;
 }
