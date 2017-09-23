@@ -16,6 +16,7 @@
 #include <iostream>
 
 int main() {
+	// Prints my Name and Info to the screen
 	std::cout << "-+-+-+-+-+-+-+-+-+-+-+-+-\n";
 	std::cout << "Name: Kevin Mui\n";
 	std::cout << "Major Computer Engineering\n";
@@ -23,11 +24,11 @@ int main() {
 	std::cout << "Reason I am taking this class: C++ is great for server performance.\n";
 	std::cout << "-+-+-+-+-+-+-+-+-+-+-+-+-\n";
 	std::cout << "\n";
+
+	// Print prompt and loop print "-=-" based on input
 	std::cout << "Number of times to loop: ";
-	
 	int loops;
 	std::cin >> loops;
-
 	int i;
 	for (i = 0; i < loops; i++)
 		std::cout << "-=-";
