@@ -71,13 +71,13 @@ int main() {
         cout << name << endl;
     cout << endl;
 
-    ofstream file("intersection.txt");
-    if (file.is_open()) {
-        for (string& name : intersection_vector)
-            file << name << endl;
-    }
-    else
-        cout << "Error: Cannot write to intersection.txt.\n";
+    // ofstream file("intersection.txt");
+    // if (file.is_open()) {
+    //     for (string& name : intersection_vector)
+    //         file << name << endl;
+    // }
+    // else
+    //     cout << "Error: Cannot write to intersection.txt.\n";
     
 
 // The set intersection of the two files was written to a file named intersection.txt
