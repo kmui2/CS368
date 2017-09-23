@@ -1,0 +1,23 @@
+Chinese,Spicy String Beans
+Korean-Canadian Fusion,Kimchi Poutine
+Chinese,Twice-Cooked Pork
+Korean,Beef Bulgogi
+Japanese,Katsu Don
+Thai,Pad Thai
+Chinese,Eggplant with Chilli and Garlic
+Japanese,Tonkotsu Ramen
+Korean,Bibimbap
+Vietnamese,Pho Noodles
+Thai,Pad Kee Mao
+Japanese,Vegetable Tempura
+Japanese,Teriyaki Salmon
+Chinese,Chicken Lo Mein
+Korean,Ddeokbokki
+Vietnamese,BBQ Pork Banh Mi
+Chinese,Gan Guo Chicken
+Thai,Pineapple Fried Rice
+Korean,Kimchi Stew
+Japanese,Okonomiyaki
+Japanese,Yakisoba
+Korean,Naengmyeon
+Vietnamese,Lemongrass Chicken Wings

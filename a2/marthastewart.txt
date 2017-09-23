@@ -1,0 +1,40 @@
+American,Mac and Cheese
+American,Hamburgers
+American,Spicy Chili
+Italian,Spaghetti and Meatballs
+American,Green Bean Casserole
+Breakfast,Quiche
+Italian,Pizza
+American,Meatloaf
+Breakfast,Omelette
+Appetizers,Nachos
+American,Roast Turkey
+Italian,Chicken Parmesan
+Salad,Buttermilk Chicken Caesar Salad
+Italian,Eggplant Parmesan
+Italian,Lasagna
+Mexican,Beef Tacos
+Salad,Chicken Feta and Pistachio Salad
+American,Brisket BBQ
+British,Chicken and Mushroom Pie
+Salad,Steak Salad with Snap Peas
+Chinese,Sesame Chicken
+Italian,Shrimp Scampi
+Italian,Fettucine Alfredo
+American,Beef Stew
+American,Sloppy Joes
+American,Biscuits and Gravy
+Dessert,Citrus-Glazed Pumpkin-Carrot Cake
+Poultry,Spit-Roasted Chicken
+Pasta,Spaghetti with Collard Greens and Lemon
+Thai,Thai Pork Salad
+Salad,Butter-Lettuce Salad with Egg and Potatoes
+Thai,Pad See Ew
+Vegetarian,Grapefruit and Vinegar-Roasted Beets with Salsa Verde
+Mexican,Kettle-Chip Nachos
+Appetizers,Ham-and-Spinach Dip
+Stews,Smoky Salmon-and-Potato Stew
+Potatoes,Garlic-Thyme Mashed Potatoes
+Breakfast,Crab and Avocado Eggs Benedict
+Vegetarian,Cauliflower and Mushroom Roast
+Vegetarian,Fried Brussels Sprouts

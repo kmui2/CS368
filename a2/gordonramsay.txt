@@ -1,0 +1,30 @@
+American,Steak
+Breakfast,Quiche
+American,Hamburgers
+Poultry,Butter Chicken
+English,Beef Wellington
+Italian,Pizza
+Jamaican,Jerk Chicken
+Soups,Pumpkin Soup
+Italian,Brussel Sprouts with Pancetta
+Meat,Honey Glazed Ham
+Potatoes,Roast Potatoes With Chilli and Turmeric
+Soups,Cream of Cauliflower Soup
+Breakfast,Omelette
+Meat,Slow-cooked Fiery Lamb
+French,Chocolate Tarts with Peanut Brittle
+Japanese,Teriyaki Salmon
+Salad,Spicy Beef Salad
+Mediterranean,Roasted Squash Hummus
+Salad,Quinoa Salad
+Seafood,Pan-fried Scallops with Crunchy Apple Salad
+Meat,Slow-cooked Beef Short Ribs
+Meat,Slow Roasted Pork Belly
+Dessert,Bread and Butter Pudding
+Vegetarian,Asparagus with Lemon and Tarragon Hollandaise
+African,North African Eggs
+Dessert,Apple Crumble
+Bread,Olive Tomato and Rosemary Focaccia
+Meat,Roast Turkey with Lemon Parsley and Garlic
+Dessert,Christmas Bombe
+Seafood,Fish Pie
