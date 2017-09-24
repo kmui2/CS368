@@ -29,8 +29,11 @@ using namespace std;
  * @return vector pointer of strings holding each recipe per element
  */
 vector<string>* readFile(string filename) {
+
+    // names of recipes
     vector<string>* names;
 
+    // open file and append every recipe name (line) to names vector
     ifstream file(filename);
     if (file.is_open()) {
         names = new vector<string>();
@@ -45,6 +48,7 @@ vector<string>* readFile(string filename) {
     else
         cout << "Input file "+filename+" is NOT found. Please try again.\n";
     
+    // return null if file cannot be opened
     return NULL;
 
 }
@@ -56,11 +60,15 @@ vector<string>* readFile(string filename) {
  */
 int main() {
     
+    // filenames of recipes
     string filename1;
     string filename2;
+    // names of recipes
     vector<string>* names1 = NULL;
     vector<string>* names2 = NULL;
 
+
+    // start by getting filename by input and reading the file
     while (!names1) {
         cout << "Enter the name of the first file: ";
         cin >> filename1;
@@ -73,6 +81,7 @@ int main() {
         names2 = readFile(filename2);
     }
 
+    // compute the union and intersection of the recipe files
     vector<string> union_vector;
     vector<string> intersection_vector;
 
@@ -85,6 +94,8 @@ int main() {
     set_intersection (names1->begin(), names1->end(), names2->begin(), 
         names2->end(), back_inserter(intersection_vector));
 
+
+    // print information based on union and intersection of recipe files
     cout << endl;
     cout << "Number of recipes in "+filename1+" = " << names1->size() << endl;
     cout << "Number of recipes in "+filename2+" = " << names2->size() << endl;
@@ -97,26 +108,24 @@ int main() {
         cout << name << endl;
     cout << endl;
 
+    // output recipe names intersection and union to respective files
     ofstream intersectionFile("intersection.txt");
     if (intersectionFile.is_open()) {
         for (string& name : intersection_vector)
             intersectionFile << name << endl;
+        cout << "The set intersection of the two files was written to a file named intersection.txt\n";
     }
     else
         cout << "Error: Cannot write to intersection.txt.\n";
-
     
     ofstream unionFile("union.txt");
     if (unionFile.is_open()) {
         for (string& name : union_vector)
             unionFile << name << endl;
+        cout << "The set union of the two files was written to a file named union.txt\n";
     }
     else
         cout << "Error: Cannot write to union.txt.\n";
-    
-
-    cout << "The set intersection of the two files was written to a file named intersection.txt\n";
-    cout << "The set union of the two files was written to a file named union.txt\n";
     
     return 0;
 }
