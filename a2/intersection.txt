@@ -1,1 +1,4 @@
-Japanese,Teriyaki Salmon
+American,Hamburgers
+Breakfast,Omelette
+Breakfast,Quiche
+Italian,Pizza

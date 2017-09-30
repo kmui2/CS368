@@ -46,7 +46,7 @@ vector<string>* readFile(string filename) {
         return names;
     }
     else
-        cout << "Input file "+filename+" is NOT found. Please try again.\n";
+        cout << "Input file "+filename+" is NOT found. Please try again." << endl;
     
     // return null if file cannot be opened
     return NULL;
@@ -113,19 +113,19 @@ int main() {
     if (intersectionFile.is_open()) {
         for (string& name : intersection_vector)
             intersectionFile << name << endl;
-        cout << "The set intersection of the two files was written to a file named intersection.txt\n";
+        cout << "The set intersection of the two files was written to a file named intersection.txt" << endl;
     }
     else
-        cout << "Error: Cannot write to intersection.txt.\n";
+        cout << "Error: Cannot write to intersection.txt." << endl;
     
     ofstream unionFile("union.txt");
     if (unionFile.is_open()) {
         for (string& name : union_vector)
             unionFile << name << endl;
-        cout << "The set union of the two files was written to a file named union.txt\n";
+        cout << "The set union of the two files was written to a file named union.txt" << endl;
     }
     else
-        cout << "Error: Cannot write to union.txt.\n";
+        cout << "Error: Cannot write to union.txt." << endl;
     
     return 0;
 }
