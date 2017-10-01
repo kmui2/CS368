@@ -1,0 +1,8 @@
+Enter the name of the first file: Enter the name of the second file: 
+Number of recipes in spam = 0
+Number of recipes in ham = 0
+Number of recipes that are present in BOTH spam AND ham = 0
+Number of recipes that are in EITHER spam OR ham = 0
+
+The set intersection of the two files was written to a file named intersection.txt
+The set union of the two files was written to a file named union.txt

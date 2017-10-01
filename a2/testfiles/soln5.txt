@@ -1,0 +1,14 @@
+Enter the name of the first file: Input file juliachild is NOT found. Please try again.
+Enter the name of the first file: Input file randomfile is NOT found. Please try again.
+Enter the name of the first file: Enter the name of the second file: Input file anthonybourdain is NOT found. Please try again.
+Enter the name of the second file: 
+Number of recipes in asian = 23
+Number of recipes in gordonramsay = 30
+Number of recipes that are present in BOTH asian AND gordonramsay = 1
+Number of recipes that are in EITHER asian OR gordonramsay = 52
+
+List of recipes that are present in BOTH asian AND gordonramsay:
+Japanese,Teriyaki Salmon
+
+The set intersection of the two files was written to a file named intersection.txt
+The set union of the two files was written to a file named union.txt
