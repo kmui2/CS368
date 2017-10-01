@@ -41,7 +41,8 @@ vector<string>* readFile(string filename) {
         int i = 1;
         while (file.good()) {
             getline(file, line);
-            names->push_back(line);
+            if (line != "")
+                names->push_back(line);
         }
         return names;
     }
@@ -102,11 +103,14 @@ int main() {
     cout << "Number of recipes that are present in BOTH "+filename1+" AND "+filename2+" = " << intersection_vector.size() << endl;
     cout << "Number of recipes that are in EITHER "+filename1+" OR "+filename2+" = " << union_vector.size() << endl;
     cout << endl;
-    cout << "List of recipes that are present in BOTH "+filename1+" AND "+filename2+":" << endl;
+    
+    if (intersection_vector.size() > 0) {
+        cout << "List of recipes that are present in BOTH "+filename1+" AND "+filename2+":" << endl;
 
-    for (string& name : intersection_vector)
-        cout << name << endl;
-    cout << endl;
+        for (string& name : intersection_vector)
+            cout << name << endl;
+        cout << endl;
+    }
 
     // output recipe names intersection and union to respective files
     ofstream intersectionFile("intersection.txt");
