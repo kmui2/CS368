@@ -67,6 +67,12 @@ void fillDictionary(std::istream &newInFile,
 void fillCommonWords(std::istream &inFile,
                    std::unordered_set<std::string> &commonWords) {
     // TODO: Implement this function.
+    names = new vector<string>();
+    string line;
+    while (file.good()) {
+        getline(file, line);
+        commonWords->insert(line);
+    }
 }
 
 /**
