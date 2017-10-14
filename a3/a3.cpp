@@ -69,7 +69,6 @@ void fillDictionary(std::istream &newInFile,
         getline(newInFile, line);
         std::vector<std::string> words;
         splitLine(line, words);
-        
         for (auto it = words.begin(); it != words.end(); ++it) {
             if (!it->empty() && it->compare(*words.begin()) != 0) {
                 if (dict.find(*it) == dict.end()) {
