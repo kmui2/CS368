@@ -153,7 +153,9 @@ void rateReviews(std::istream &testFile,
             for (auto it = words.begin(); it != words.end(); ++it) {
                 // std::cout<<"loop start"<<std::endl;
                 if (dict.find(*it) != dict.end()) {
-                    totalRatings += dict[*it].first/dict[*it].second;
+                    double first = dict[*it].first;
+                    double second = dict[*it].second;
+                    // totalRatings += dict[*it].first/dict[*it].second;
                     // std::cout<<"loop check"<<std::endl;
                     std::cout <<"first = " << dict[*it].first << " second = " << dict[*it].second << std::endl;
                     std::cout<< "total ratiings = " << totalRatings << std::endl;
