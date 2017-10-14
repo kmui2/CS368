@@ -84,7 +84,7 @@ void fillDictionary(std::istream &newInFile,
         
         for (auto it = words.begin(); it != words.end(); ++it) {
             // std::cout << "word: " << *it << std::endl;
-            if (!it->empty()) {
+            if (!it->empty() && it->compare(*words.begin()) != 0) {
                 if (dict.find(*it) == dict.end()) {
                     // std::cout << "make pair" << std::endl;
                     dict[*it] = std::make_pair(std::stol(*(words.begin())),1.0);
