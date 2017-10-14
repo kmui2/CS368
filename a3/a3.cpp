@@ -182,7 +182,7 @@ void rateReviews(std::istream &testFile,
 
     }
     for (auto it = ratings.begin(); it != ratings.end(); ++it) {
-        ratingsFile << *it << std::endl;
+        ratingsFile << std::fixed << std::setprecision(2) << *it << std::endl;
     }
 }
 
