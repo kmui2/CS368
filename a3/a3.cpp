@@ -156,6 +156,7 @@ void rateReviews(std::istream &testFile,
                     double first = dict[*it].first;
                     double second = dict[*it].second;
                     // totalRatings += dict[*it].first/dict[*it].second;
+                    totalRatings += first/second;
                     // std::cout<<"loop check"<<std::endl;
                     std::cout <<"first = " << dict[*it].first << " second = " << dict[*it].second << std::endl;
                     std::cout<< "total ratiings = " << totalRatings << std::endl;
