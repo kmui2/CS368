@@ -40,8 +40,6 @@
  */
 void cleanData(std::istream &inFile, std::ostream &outFile,
                std::unordered_set<std::string> &commonWords) {
-    // TODO: Implement this function.
-    // Remember to call the helper functions below!
     std::vector<std::string> tokens;
     std::string line;
     while (inFile.good()) {
@@ -49,14 +47,9 @@ void cleanData(std::istream &inFile, std::ostream &outFile,
         tokens.push_back(line);
     }
     removeCommonWords(tokens, commonWords);
-    for (auto it = tokens.begin(); it != tokens.end(); ++it) {
-        // std::cout << "checking if empty: " << *it << std::endl;
-        if (!it->empty()) {
-            // std::cout << "not empty: " << *it << std::endl;
-            // std::cout << "sent to clean file:" << *it << std::endl;
+    for (auto it = tokens.begin(); it != tokens.end(); ++it)
+        if (!it->empty())
             outFile << *it << std::endl;
-        }
-    }
     
 }
 
@@ -71,43 +64,29 @@ void cleanData(std::istream &inFile, std::ostream &outFile,
  */
 void fillDictionary(std::istream &newInFile,
                     std::unordered_map<std::string, std::pair<long, long>> &dict) {
-    // TODO: Implement this function.
-    // std::cout << "entered filldictionary" << std::endl;
     std::string line;
     while (newInFile.good()) {
-        // std::cout<<"next line in file" <<std::endl;
         getline(newInFile, line);
-        // std::cout<<"geline in file"<<std::endl;
         std::vector<std::string> words;
         splitLine(line, words);
-        // std::cout<<"splitline success"<<std::endl;
         
         for (auto it = words.begin(); it != words.end(); ++it) {
-            // std::cout << "word: " << *it << std::endl;
             if (!it->empty() && it->compare(*words.begin()) != 0) {
                 if (dict.find(*it) == dict.end()) {
-                    // std::cout << "make pair" << std::endl;
                     dict[*it] = std::make_pair(std::stol(*(words.begin())),1.0);
                 }
                 else {
-                    // std::cout << "first = " << *(words.begin()) << std::endl;
                     long first = dict[*it].first+std::stol(*(words.begin())); // add current and rating
                     long second = dict[*it].second+1.0;   // increment number of this rating
-                    // std::cout << "first = " << first << " second = " << second << std::endl;
                     dict[*it] = std::make_pair(first,second);
                 }
             }
-            else {
-                // std::cout<<"this is empyt"<<std::endl;
-            }
         }
-        // std::cout <<"pass" <<std::endl;
     }
     for (auto it = dict.begin(); it != dict.end(); ++it) {
-        std::cout << it->first << " => " << it->second.first << " , " << it->second.second << std::endl;
+        std::cout <<  << std::fixed << std::setprecision(2) << it->first << " => " << it->second.first << " , " << it->second.second << std::endl;
     }
     std::cout << std::endl;
-    // std::cout<<"exit filldict" << std::endl;
 }
 
 /**
@@ -118,7 +97,6 @@ void fillDictionary(std::istream &newInFile,
  */
 void fillCommonWords(std::istream &inFile,
                    std::unordered_set<std::string> &commonWords) {
-    // TODO: Implement this function.
     std::string line;
     while (inFile.good()) {
         getline(inFile, line);
@@ -144,39 +122,22 @@ void rateReviews(std::istream &testFile,
         getline(testFile, line);
         std::vector<std::string> words;
         splitLine(line, words);
-        // std::cout << "checking if empty: " << line << std::endl;
         if (!line.empty()) {
-            // std::cout << "not empty: " << line << std::endl;
-            // std::cout << "from line" << std::endl;
             double numWords = words.size();
             double totalRatings = 0.0;
             for (auto it = words.begin(); it != words.end(); ++it) {
-                std::cout << "current word: " << *it << std::endl;
-                // std::cout<<"loop start"<<std::endl;
                 if (dict.find(*it) != dict.end()) {
                     double first = dict[*it].first;
                     double second = dict[*it].second;
-                    // totalRatings += dict[*it].first/dict[*it].second;
                     totalRatings += first/second;
-                    // std::cout<<"loop check"<<std::endl;
-                    // std::cout <<"first = " << dict[*it].first << " second = " << dict[*it].second << std::endl;
                     std::cout<< "total ratiings = " << totalRatings << std::endl;
                 }
                 else {                    
                     totalRatings += 2;
-                    // std::cout <<"first = " << 2 << " second = " << 1<< std::endl;                    
-                    // std::cout<< "total ratiings = " << totalRatings << std::endl;
                 }
-        
-                // std::cout<<"loop end"<<std::endl;
             }
-            // std::cout<<"calculate attempt" <<std::endl;
-            // std::cout << "current line: " << line <<std::endl;
-            // std::cout << "totalRatings = " << totalRatings << " numWords = " << numWords << std::endl;
             
             double finalRating = totalRatings / numWords;
-            // std::cout<<"calculate success" <<std::endl;
-            // std::cout << "finalRating = " << finalRating << std::endl << std::endl;
             
             ratings.push_back(finalRating);
         }
@@ -195,21 +156,15 @@ void rateReviews(std::istream &testFile,
  */
 void removeCommonWords(std::vector<std::string> &tokens,
                      std::unordered_set<std::string> &commonWords) {
-    // TODO: Implement this function.
     for (auto it = tokens.begin(); it != tokens.end(); ++it) {
         std::vector<std::string> words;
         splitLine(*it, words);
         std::string line = "";
-        // std::cout << "line: " << *it << std::endl;
         for (auto wit = words.begin(); wit != words.end(); ++wit) {
             if (commonWords.find(*wit) == commonWords.end()) {
-                // std::cout << *wit << std::endl;
-                // words.erase(std::remove(tokens.begin(), tokens.end(), *wit), tokens.end());
                 line += *wit + ' ';
             }
         }
-
-        // std::cout << "cleaned line: " << line << std::endl;
         *it = line;
     }
 }
