@@ -85,7 +85,7 @@ void fillDictionary(std::istream &newInFile,
         for (auto it = words.begin(); it != words.end(); ++it) {
             // std::cout << "word: " << *it << std::endl;
             if (!it->empty()) {
-                if (dict.find(*it) != dict.end()) {
+                if (dict.find(*it) == dict.end()) {
                     // std::cout << "make pair" << std::endl;
                     dict[*it] = std::make_pair(std::stol(*(words.begin())),1.0);
                 }
@@ -139,7 +139,7 @@ void rateReviews(std::istream &testFile,
                  std::ostream &ratingsFile) {
     // TODO: Implement this function.
     std::string line;
-    std::vector <long> ratings;
+    std::vector <double> ratings;
     while (testFile.good()) {
         getline(testFile, line);
         std::vector<std::string> words;
@@ -148,23 +148,31 @@ void rateReviews(std::istream &testFile,
         if (!line.empty()) {
             // std::cout << "not empty: " << line << std::endl;
             // std::cout << "from line" << std::endl;
-            long numWords = words.size();
-            long totalRatings = 0;
+            double numWords = words.size();
+            double totalRatings = 0.0;
             for (auto it = words.begin(); it != words.end(); ++it) {
                 // std::cout<<"loop start"<<std::endl;
                 if (dict.find(*it) != dict.end()) {
-                    // std::cout<<"loop check"<<std::endl;
-                    // std::cout <<"first = " << dict[*it].first << " second = " << dict[*it].second << std::endl;
                     totalRatings += dict[*it].first/dict[*it].second;
-                    // std::cout<< "total ratiings = " << totalRatings << std::endl;
+                    // std::cout<<"loop check"<<std::endl;
+                    std::cout <<"first = " << dict[*it].first << " second = " << dict[*it].second << std::endl;
+                    std::cout<< "total ratiings = " << totalRatings << std::endl;
                 }
+                else {                    
+                    totalRatings += 2;
+                    std::cout <<"first = " << 2 << " second = " << 1<< std::endl;                    
+                    std::cout<< "total ratiings = " << totalRatings << std::endl;
+                }
+        
                 // std::cout<<"loop end"<<std::endl;
             }
             // std::cout<<"calculate attempt" <<std::endl;
-            // std::cout << "totalRatings = " << totalRatings << " numWords = " << numWords << std::endl;
+            std::cout << "current line: " << line <<std::endl;
+            std::cout << "totalRatings = " << totalRatings << " numWords = " << numWords << std::endl;
             
-            long finalRating = totalRatings / numWords;
+            double finalRating = totalRatings / numWords;
             // std::cout<<"calculate success" <<std::endl;
+            std::cout << "finalRating = " << finalRating << std::endl << std::endl;
             
             ratings.push_back(finalRating);
         }
