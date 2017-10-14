@@ -84,7 +84,7 @@ void fillDictionary(std::istream &newInFile,
         }
     }
     for (auto it = dict.begin(); it != dict.end(); ++it) {
-        std::cout << it->first << " => " << it->second.first << " , " << it->second.second << std::endl;
+        std::cout <<  << std::fixed << std::setprecision(2) << it->first << " => " << it->second.first << " , " << it->second.second << std::endl;
     }
     std::cout << std::endl;
 }
