@@ -32,7 +32,7 @@
 #include <vector>
 
 /**
- * @brief Cleans the review data by removing punctuations and common words.
+ * @brief Cleans the review data by removing common words.
  *
  * @param inFile The input file with the raw review data.
  * @param outFile The output file where the clean review data is written.
@@ -42,6 +42,14 @@ void cleanData(std::istream &inFile, std::ostream &outFile,
                std::unordered_set<std::string> &commonWords) {
     // TODO: Implement this function.
     // Remember to call the helper functions below!
+    std::vector<std::string> tokens;
+    std::string line;
+    while (inFile.good()) {
+        getline(inFile, line);
+        tokens.push_back(line);
+    }
+    removeCommonWords(tokens, commonWords);
+    
 }
 
 /**
@@ -56,6 +64,20 @@ void cleanData(std::istream &inFile, std::ostream &outFile,
 void fillDictionary(std::istream &newInFile,
                     std::unordered_map<std::string, std::pair<long, long>> &dict) {
     // TODO: Implement this function.
+    std::string line;
+    while (newInFile.good()) {
+        getline(newInFile, line);
+        std::vector<std::string> words;
+        splitLine(line, words);
+        for (auto it = words.begin()+1; it != words.end(); ++it) {
+            if (dict.find(*it) != dict.end()) {
+                dict[*it] = std::make_pair(std::stol(*words.begin()),1.0);
+            }
+            else {
+                dict[*it] = std::make_pair(dict[*it].first()+std::stol(*words.begin()),dict[*it].second()+1);
+            }
+        }
+    }
 }
 
 /**
@@ -67,11 +89,10 @@ void fillDictionary(std::istream &newInFile,
 void fillCommonWords(std::istream &inFile,
                    std::unordered_set<std::string> &commonWords) {
     // TODO: Implement this function.
-    names = new vector<string>();
-    string line;
-    while (file.good()) {
-        getline(file, line);
-        commonWords->insert(line);
+    std::string line;
+    while (inFile.good()) {
+        getline(inFile, line);
+        commonWords.insert(line);
     }
 }
 
@@ -98,6 +119,11 @@ void rateReviews(std::istream &testFile,
 void removeCommonWords(std::vector<std::string> &tokens,
                      std::unordered_set<std::string> &commonWords) {
     // TODO: Implement this function.
+    for (auto it = tokens.begin(); it != tokens.end(); ++it) {
+        if (commonWords.find(*it) != commonWords.end()) {
+            tokens.erase(std::remove(tokens.begin(), tokens.end(), *it), tokens.end());
+        }
+    }
 }
 
 /**
