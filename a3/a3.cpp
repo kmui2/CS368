@@ -54,7 +54,7 @@ void cleanData(std::istream &inFile, std::ostream &outFile,
         if (!it->empty()) {
             // std::cout << "not empty: " << *it << std::endl;
             std::cout << "sent to clean file:" << *it << std::endl;
-            outFile << *it;
+            outFile << *it << std::endl;
         }
     }
     
