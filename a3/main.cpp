@@ -31,36 +31,37 @@ int main(int argc, char *argv[]) {
     // including the program name.
     if (argc != 3) {
         std::cerr << "USAGE: ./a.out <ReviewRatingsFile> <ReviewsFile>"
-                  << std::endl;
+        << std::endl;
         return -1;
     }
-
+    
     // Open the input file containing the raw data.
     std::ifstream rawReviewRatingsInputFile(argv[1]);
     if (!rawReviewRatingsInputFile.is_open()) {
         std::cerr << "Cannot open " << argv[1] << " for input."
-                  << std::endl;
+        << std::endl;
         return -1;
     }
-
+    
     // Open an output file for storing the clean data.
     std::ofstream cleanReviewRatingsOutputFile("cleanReviewRatings.txt");
     if (!cleanReviewRatingsOutputFile.is_open()) {
         std::cerr << "Cannot open cleanReviewRatings.txt for output."
-                  << std::endl;
+        << std::endl;
         return -1;
     }
-
+    
     // A set to store the common words.
     std::unordered_set<std::string> commonWords;
-
+    
     // Open the input file containing the common words.
     std::ifstream commonWordsFile("commonwords.txt");
     if (!commonWordsFile.is_open()) {
         std::cerr << "Cannot open commonwords.txt for input." << std::endl;
         return -1;
     }
-
+    
+    
     // Read a collections of common words from the common words file
     // and store it in a set.
     fillCommonWords(commonWordsFile, commonWords);
@@ -69,8 +70,10 @@ int main(int argc, char *argv[]) {
     // Clean the raw data and store it in an output file.
     cleanData(rawReviewRatingsInputFile, cleanReviewRatingsOutputFile,
               commonWords);
+    // std::cout << "cleaned Data success" << std::endl;
     rawReviewRatingsInputFile.close();
     cleanReviewRatingsOutputFile.close();
+    // std::cout << "closed clean file success" << std::endl;
 
     // A map from each word to a pair consisting of the total rating for this
     // word and the total number of times this word has occurred in the reviews.
@@ -83,14 +86,16 @@ int main(int argc, char *argv[]) {
                   << std::endl;
         return -1;
     }
+    // std::cout << "opened cleanreviewratings.txt success" << std::endl;
 
     // Create a mapping between the words and their associated values.
     fillDictionary(cleanReviewRatingsInputFile, dictionary);
+    // std::cout << "fill dictionary success" << std::endl;
     cleanReviewRatingsInputFile.close();
 
     // Open the file with the raw reviews.
     std::ifstream rawReviewsInputFile(argv[2]);
-    if (!rawReviewsInputFile.is_open()) {
+    if (!rawReviewsInputFile.is_open()) {                                                                                                                           ;
         std::cerr << "Input file " << argv[2] << " cannot be opened."
                   << std::endl;
         return -1;
