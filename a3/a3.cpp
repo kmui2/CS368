@@ -50,10 +50,10 @@ void cleanData(std::istream &inFile, std::ostream &outFile,
     }
     removeCommonWords(tokens, commonWords);
     for (auto it = tokens.begin(); it != tokens.end(); ++it) {
-        std::cout << "checking if empty: " << *it << std::endl;
+        // std::cout << "checking if empty: " << *it << std::endl;
         if (!it->empty()) {
             // std::cout << "not empty: " << *it << std::endl;
-            std::cout << "sent to clean file:" << *it << std::endl;
+            // std::cout << "sent to clean file:" << *it << std::endl;
             outFile << *it << std::endl;
         }
     }
@@ -103,6 +103,10 @@ void fillDictionary(std::istream &newInFile,
         }
         // std::cout <<"pass" <<std::endl;
     }
+    for (auto it = dict.begin(); it != dict.end(); ++it) {
+        std::cout << it->first << " => " << it->second.first << " , " << it->second.second << std::endl;
+    }
+    std::cout << std::endl;
     // std::cout<<"exit filldict" << std::endl;
 }
 
