@@ -158,24 +158,24 @@ void rateReviews(std::istream &testFile,
                     // totalRatings += dict[*it].first/dict[*it].second;
                     totalRatings += first/second;
                     // std::cout<<"loop check"<<std::endl;
-                    std::cout <<"first = " << dict[*it].first << " second = " << dict[*it].second << std::endl;
-                    std::cout<< "total ratiings = " << totalRatings << std::endl;
+                    // std::cout <<"first = " << dict[*it].first << " second = " << dict[*it].second << std::endl;
+                    // std::cout<< "total ratiings = " << totalRatings << std::endl;
                 }
                 else {                    
                     totalRatings += 2;
-                    std::cout <<"first = " << 2 << " second = " << 1<< std::endl;                    
-                    std::cout<< "total ratiings = " << totalRatings << std::endl;
+                    // std::cout <<"first = " << 2 << " second = " << 1<< std::endl;                    
+                    // std::cout<< "total ratiings = " << totalRatings << std::endl;
                 }
         
                 // std::cout<<"loop end"<<std::endl;
             }
             // std::cout<<"calculate attempt" <<std::endl;
-            std::cout << "current line: " << line <<std::endl;
-            std::cout << "totalRatings = " << totalRatings << " numWords = " << numWords << std::endl;
+            // std::cout << "current line: " << line <<std::endl;
+            // std::cout << "totalRatings = " << totalRatings << " numWords = " << numWords << std::endl;
             
             double finalRating = totalRatings / numWords;
             // std::cout<<"calculate success" <<std::endl;
-            std::cout << "finalRating = " << finalRating << std::endl << std::endl;
+            // std::cout << "finalRating = " << finalRating << std::endl << std::endl;
             
             ratings.push_back(finalRating);
         }
