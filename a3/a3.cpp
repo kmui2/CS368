@@ -83,9 +83,9 @@ void fillDictionary(std::istream &newInFile,
         }
     }
     for (auto it = dict.begin(); it != dict.end(); ++it) {
-        std::cout << std::fixed << std::setprecision(20) << it->first << " => " << it->second.first << " , " << it->second.second << std::endl;
+        // std::cout << std::fixed << std::setprecision(20) << it->first << " => " << it->second.first << " , " << it->second.second << std::endl;
     }
-    std::cout << std::endl;
+    // std::cout << std::endl;
 }
 
 /**
@@ -129,7 +129,7 @@ void rateReviews(std::istream &testFile,
                     double first = dict[*it].first;
                     double second = dict[*it].second;
                     totalRatings += first/second;
-                    std::cout<< "total ratiings = " << totalRatings << std::endl;
+                    // std::cout<< "total ratiings = " << totalRatings << std::endl;
                 }
                 else {                    
                     totalRatings += 2;
