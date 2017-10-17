@@ -40,6 +40,8 @@
  */
 void cleanData(std::istream &inFile, std::ostream &outFile,
                std::unordered_set<std::string> &commonWords) {
+    
+    // each token is inserted a single review
     std::vector<std::string> tokens;
     std::string line;
     while (inFile.good()) {
@@ -47,6 +49,7 @@ void cleanData(std::istream &inFile, std::ostream &outFile,
         tokens.push_back(line);
     }
     removeCommonWords(tokens, commonWords);
+    // output each review into each line in clean review output file
     for (auto it = tokens.begin(); it != tokens.end(); ++it)
         if (!it->empty())
             outFile << *it << std::endl;
@@ -64,16 +67,22 @@ void cleanData(std::istream &inFile, std::ostream &outFile,
  */
 void fillDictionary(std::istream &newInFile,
                     std::unordered_map<std::string, std::pair<long, long>> &dict) {
+
+    // traverse each clean review in clean input file
     std::string line;
     while (newInFile.good()) {
         getline(newInFile, line);
+        // split each clean review into words
         std::vector<std::string> words;
         splitLine(line, words);
+        // iterate through each word and add to dictionary
         for (auto it = words.begin(); it != words.end(); ++it) {
             if (!it->empty() && it->compare(*words.begin()) != 0) {
+                // add to dictionary if not exists
                 if (dict.find(*it) == dict.end()) {
                     dict[*it] = std::make_pair(std::stol(*(words.begin())),1.0);
                 }
+                // add another word instance to dictionary if exists
                 else {
                     long first = dict[*it].first+std::stol(*(words.begin())); // add current and rating
                     long second = dict[*it].second+1.0;   // increment number of this rating
@@ -82,10 +91,6 @@ void fillDictionary(std::istream &newInFile,
             }
         }
     }
-    for (auto it = dict.begin(); it != dict.end(); ++it) {
-        // std::cout << std::fixed << std::setprecision(20) << it->first << " => " << it->second.first << " , " << it->second.second << std::endl;
-    }
-    // std::cout << std::endl;
 }
 
 /**
@@ -96,6 +101,7 @@ void fillDictionary(std::istream &newInFile,
  */
 void fillCommonWords(std::istream &inFile,
                    std::unordered_set<std::string> &commonWords) {
+    // traverse each word (line) in common words file and add to set
     std::string line;
     while (inFile.good()) {
         getline(inFile, line);
@@ -115,23 +121,27 @@ void fillCommonWords(std::istream &inFile,
 void rateReviews(std::istream &testFile,
                  std::unordered_map<std::string, std::pair<long, long>> &dict,
                  std::ostream &ratingsFile) {
-    // TODO: Implement this function.
+    // traverse each review in testFile
     std::string line;
     std::vector <double> ratings;
     while (testFile.good()) {
         getline(testFile, line);
+        // split review into words
         std::vector<std::string> words;
         splitLine(line, words);
         if (!line.empty()) {
             double numWords = words.size();
             double totalRatings = 0.0;
+            // check for words in dictionary
             for (auto it = words.begin(); it != words.end(); ++it) {
+                // calculate word using dictionary if word in dictionary
                 if (dict.find(*it) != dict.end()) {
                     double first = dict[*it].first;
                     double second = dict[*it].second;
                     totalRatings += first/second;
                     // std::cout<< "total ratiings = " << totalRatings << std::endl;
                 }
+                // use neutral rating if word not in dictionary
                 else {                    
                     totalRatings += 2;
                 }
@@ -143,6 +153,7 @@ void rateReviews(std::istream &testFile,
         }
 
     }
+    // output each predicted rating into ratingsFile
     for (auto it = ratings.begin(); it != ratings.end(); ++it) {
         ratingsFile << std::fixed << std::setprecision(2) << *it << std::endl;
     }
@@ -156,16 +167,19 @@ void rateReviews(std::istream &testFile,
  */
 void removeCommonWords(std::vector<std::string> &tokens,
                      std::unordered_set<std::string> &commonWords) {
+    // traverse each review
     for (auto it = tokens.begin(); it != tokens.end(); ++it) {
+        // split the review into words
         std::vector<std::string> words;
         splitLine(*it, words);
-        std::string line = "";
+        // make the clean review using the raw review words taking out common words
+        std::string cleanReview = "";
         for (auto wit = words.begin(); wit != words.end(); ++wit) {
             if (commonWords.find(*wit) == commonWords.end()) {
-                line += *wit + ' ';
+                cleanReview += *wit + ' ';
             }
         }
-        *it = line;
+        *it = cleanReview;
     }
 }
 
