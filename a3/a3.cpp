@@ -99,7 +99,8 @@ void fillCommonWords(std::istream &inFile,
     std::string line;
     while (inFile.good()) {
         getline(inFile, line);
-        commonWords.insert(line);
+        if (!line.empty())
+            commonWords.insert(line);
     }
 }
 
