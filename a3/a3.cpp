@@ -1,10 +1,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 // File Name:      a3.cpp
 //
-// Author:         Gerald, Isaac, Varun
+// Author:         Gerald, Isaac, Varun, Kevin Mui
 // CS email:       gerald@cs.wisc.edu
 //                 cisung@wisc.edu
 //                 vnaik@cs.wisc.edu
+//                 mui@cs.wisc.edu
 //
 // Description:    The source file for a3.
 //
