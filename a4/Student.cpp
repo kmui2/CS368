@@ -1,13 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
-// File Name:      Student.hpp
+// File Name:      Student.cpp
 //
-// Author:         Gerald, Isaac
-// CS email:       gerald@cs.wisc.edu, isung@cs.wisc.edu
+// Author:         Gerald, Isaac, Kevin Mui
+// CS email:       gerald@cs.wisc.edu, isung@cs.wisc.edu, mui@cs.wisc.edu
 //
-// Description:    The header file for the Student class.
-//
-// IMPORTANT NOTE: You should NOT add/modify/remove any PUBLIC methods.
-//                 If you need, you may add some PRIVATE methods.
+// Description:    The implmemntation for the Student class.
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "Student.hpp"
@@ -32,11 +29,12 @@ int Student::numStudents = 0;
 Student::Student(std::string name,
         std::vector<double> &assignmentsScore,
         double projectScore) {
+            // set all data members
             this->id = numStudents;
             this->name = name;
-            std::cout << "THIS IS NAME = " << this->name << std::endl;
             this->assignmentsScore = assignmentsScore;
             this->projectScore = projectScore;
+            
             numStudents++;
 };
 
@@ -101,11 +99,13 @@ void Student::printDetails(){
     std::cout << "STUDENT DETAILS:" << std::endl;
     std::cout << "Id = " << this->id << std::endl;
     std::cout << "Name = " << this->name << std::endl;
-    std::string aStr = "[";
+    // get assignments and print scores neatly
+    std::cout << "Assignments = [";
     std::vector<double> scores = Student::getAssignmentsScore();
-    for (auto it = scores.begin(); it != scores.end(); ++it)
-        aStr += std::to_string(*it)+",";
-    std::cout << aStr.substr(0,aStr.size()-1) << "]" << std::endl;
+    for (int i = 0; i < scores.size(); i++)
+        // print score double and ending with either , not at the end or ] at the end
+        std::cout << scores[i] << ((i != scores.size()-1) ? ", " : "]");
+    std::cout << std::endl;
     std::cout << "Project = " << this->projectScore << std::endl;
     std::cout << "Total = " << this->getTotal() << std::endl;
 };
