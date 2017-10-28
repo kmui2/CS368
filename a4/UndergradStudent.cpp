@@ -57,11 +57,10 @@ void UndergradStudent::printDetails() {
     std::cout << "STUDENT DETAILS:" << std::endl;
     std::cout << "Id = " << Student::getId() << std::endl;
     std::cout << "Name = " << Student::getName() << std::endl;
-    std::string aStr = "[";
     std::vector<double> scores = Student::getAssignmentsScore();
-    for (auto it = scores.begin(); it != scores.end(); ++it)
-        aStr += std::to_string(*it)+",";
-    std::cout << aStr.substr(0,aStr.size()-1) << "]" << std::endl;
+    std::cout << "[";
+    for (int i = 0; i < scores.size(); i++)
+        std::cout << scores[i] << (i != scores.size()-1 ? ", " : "]");
     std::cout << "Project = " << Student::getProjectScore() << std::endl;
     std::cout << "Total = " << this->getTotal() << std::endl;
     std::cout << "Grade = " << this->getGrade() << std::endl;

@@ -34,6 +34,7 @@ Student::Student(std::string name,
         double projectScore) {
             this->id = numStudents;
             this->name = name;
+            std::cout << "THIS IS NAME = " << this->name << std::endl;
             this->assignmentsScore = assignmentsScore;
             this->projectScore = projectScore;
             numStudents++;
@@ -54,7 +55,7 @@ int Student::getId() {
  * @return The name of the student.
  */
 std::string Student::getName(){
-    this->name;
+    return this->name;
 };
 
 /**
@@ -63,7 +64,7 @@ std::string Student::getName(){
  * @return A reference to the vector of student's assignment scores.
  */
 std::vector<double>& Student::getAssignmentsScore() {
-    this->assignmentsScore;
+    return this->assignmentsScore;
 };
 
 /**
