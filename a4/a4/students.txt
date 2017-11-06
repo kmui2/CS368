@@ -1,0 +1,11 @@
+G,Jack Stratton,82,97,77,88,93,94,99,Performing Arts Technology,Reinhold Mack
+G,Theo Katzmann,57,73,72,67,68,79,71,Jazz Studies,Darren Criss
+U,Joe Dart,93,67,78,96,91,97,96,Sellery,Senior
+G,Woody Goss,95,67,58,59,83,57,63,Jazz Studies,Bill Evans
+G,Michael League,54,77,89,75,90,87,91,School of Funk,Bootsy Collins
+U,Cory Henry,100,97,100,87,95,86,93,Waters,Junior
+U,Antwaun Stanley,67,96,83,76,60,99,89,Waters,Sophomore
+U,Shaun Martin,51,79,50,68,60,70,75,Leopold,Freshman
+G,Robert Sput Searight,99,87,83,90,79,98,79,Percussion Studies,Elvin Jones
+G,Mark Lettieri,67,90,83,96,87,95,98,Guitar Studies,Wes Montgomery
+U,Joey Dosik,76,96,59,65,40,96,77,Ogg,Junior
