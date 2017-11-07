@@ -56,26 +56,6 @@ void fillStudents(std::istream &inFile,
         }
     }
 
-    
-    // sort students using sorted map
-    // std::map<double, std::shared_ptr<Student>> sortedUStudents;
-    // for (auto it = ugstudentPtrs.begin(); it != ugstudentPtrs.end(); ++it)
-    //     sortedUStudents[it->get()->getTotal()] = *it;
-    
-    // ugstudentPtrs.clear();    
-    // for (auto it = sortedUStudents.rbegin(); it != sortedUStudents.rend(); ++it)
-    //     ugstudentPtrs.push_back(it->second);
-
-    
-    // // sort students using sorted map
-    // std::map<double, std::shared_ptr<Student>> sortedGStudents;
-    // for (auto it = gstudentPtrs.begin(); it != gstudentPtrs.end(); ++it)
-    //     sortedGStudents[it->get()->getTotal()] = *it;
-        
-    // gstudentPtrs.clear();    
-    // for (auto it = sortedGStudents.rbegin(); it != sortedGStudents.rend(); ++it)
-    //     gstudentPtrs.push_back(it->second);
-
 }
 
 void printStudents(std::vector<std::shared_ptr<Student>>& students) {
