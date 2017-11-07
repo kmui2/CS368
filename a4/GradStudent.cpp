@@ -69,7 +69,6 @@ void GradStudent::printDetails() {
     std::cout << "Type = Graduate Student" << std::endl;
     std::cout << "Research Area = " << this->researchArea << std::endl;
     std::cout << "Advisor = " << this->advisor << std::endl;
-    std::cout << std::endl;
 };
 
 double GradStudent::getTotal() {

@@ -61,6 +61,7 @@ void printStudents(std::vector<std::shared_ptr<Student>>& students) {
     // prints details in every student
     for (auto it = students.begin(); it != students.end(); ++it)
         it->get()->printDetails();
+        std::cout << std::endl;
 }
 
 void computeStatistics(std::vector<std::shared_ptr<Student>>& students) {
