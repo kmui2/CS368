@@ -13,6 +13,7 @@
 
 #include <sstream>
 #include <iostream>
+#include <algorithm>
 #include <map>
 void fillStudents(std::istream &inFile,
                   std::vector<std::shared_ptr<Student>>& gstudentPtrs,
@@ -79,14 +80,15 @@ void computeStatistics(std::vector<std::shared_ptr<Student>>& students) {
 
     // sort and print the students based on their total.
     std::cout << "The sorted list of students (id, name, total, grade) in descending order of total:" << std::endl;
-        // sort students using sorted map
-    std::map<double, std::shared_ptr<Student>> sortedStudents;
-    // print students 
-      for (auto it = students.begin(); it != students.end(); ++it)
-        sortedStudents[it->get()->getTotal()] = *it;
+    
+    // sort students in place 
+    sort(students.begin(), students.end(), [ ]( const std::shared_ptr<Student> lhs, const std::shared_ptr<Student> rhs ) {
+       return lhs->getTotal() > rhs->getTotal();
+    });
+
      // print students using reverse iterator on total grades
-    for (auto it = sortedStudents.rbegin(); it != sortedStudents.rend(); ++it)
-        std::cout << it->second->getId() << ", " << it->second->getName() << ", " 
-                        << it->second->getTotal() << ", " << it->second->getGrade() << std::endl; 
+    for (auto it = students.begin(); it != students.end(); ++it)
+        std::cout << it->get()->getId() << ", " << it->get()->getName() << ", " 
+                        << it->get()->getTotal() << ", " << it->get()->getGrade() << std::endl; 
     std::cout << std::endl;
 }
