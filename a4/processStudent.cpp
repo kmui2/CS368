@@ -58,23 +58,23 @@ void fillStudents(std::istream &inFile,
 
     
     // sort students using sorted map
-    std::map<double, std::shared_ptr<Student>> sortedUStudents;
-    for (auto it = ugstudentPtrs.begin(); it != ugstudentPtrs.end(); ++it)
-        sortedUStudents[it->get()->getTotal()] = *it;
+    // std::map<double, std::shared_ptr<Student>> sortedUStudents;
+    // for (auto it = ugstudentPtrs.begin(); it != ugstudentPtrs.end(); ++it)
+    //     sortedUStudents[it->get()->getTotal()] = *it;
     
-    ugstudentPtrs.clear();    
-    for (auto it = sortedUStudents.rbegin(); it != sortedUStudents.rend(); ++it)
-        ugstudentPtrs.push_back(it->second);
+    // ugstudentPtrs.clear();    
+    // for (auto it = sortedUStudents.rbegin(); it != sortedUStudents.rend(); ++it)
+    //     ugstudentPtrs.push_back(it->second);
 
     
-    // sort students using sorted map
-    std::map<double, std::shared_ptr<Student>> sortedGStudents;
-    for (auto it = gstudentPtrs.begin(); it != gstudentPtrs.end(); ++it)
-        sortedGStudents[it->get()->getTotal()] = *it;
+    // // sort students using sorted map
+    // std::map<double, std::shared_ptr<Student>> sortedGStudents;
+    // for (auto it = gstudentPtrs.begin(); it != gstudentPtrs.end(); ++it)
+    //     sortedGStudents[it->get()->getTotal()] = *it;
         
-    gstudentPtrs.clear();    
-    for (auto it = sortedGStudents.rbegin(); it != sortedGStudents.rend(); ++it)
-        gstudentPtrs.push_back(it->second);
+    // gstudentPtrs.clear();    
+    // for (auto it = sortedGStudents.rbegin(); it != sortedGStudents.rend(); ++it)
+    //     gstudentPtrs.push_back(it->second);
 
 }
 
@@ -97,11 +97,14 @@ void computeStatistics(std::vector<std::shared_ptr<Student>>& students) {
 
     // sort and print the students based on their total.
     std::cout << "The sorted list of students (id, name, total, grade) in descending order of total:" << std::endl;
-    
+        // sort students using sorted map
+    std::map<double, std::shared_ptr<Student>> sortedStudents;
     // print students 
-    for (auto it = students.begin(); it != students.end(); ++it)
-        std::cout << it->get()->getId() << ", " << it->get()->getName() << ", " 
-                        << it->get()->getTotal() << ", " << it->get()->getGrade() << std::endl; 
-    
+      for (auto it = students.begin(); it != students.end(); ++it)
+        sortedStudents[it->get()->getTotal()] = *it;
+     // print students using reverse iterator on total grades
+    for (auto it = sortedStudents.rbegin(); it != sortedStudents.rend(); ++it)
+        std::cout << it->second->getId() << ", " << it->second->getName() << ", " 
+                        << it->second->getTotal() << ", " << it->second->getGrade() << std::endl; 
     std::cout << std::endl;
 }
