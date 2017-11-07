@@ -70,7 +70,7 @@ void UndergradStudent::printDetails() {
     std::cout << "Type = Undergraduate Student" << std::endl;
     std::cout << "Residence Hall = " << this->residenceHall << std::endl;
     std::cout << "Year in College = " << this->yearInCollege << std::endl;
-    std::cout << std::endl;
+    // std::cout << std::endl;
 };
 
 double UndergradStudent::getTotal() {
