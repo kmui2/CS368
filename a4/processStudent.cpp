@@ -81,7 +81,7 @@ void computeStatistics(std::vector<std::shared_ptr<Student>>& students) {
     // sort and print the students based on their total.
     std::cout << "The sorted list of students (id, name, total, grade) in descending order of total:" << std::endl;
     
-    // sort students in place 
+    // sort students in place in desceding Totals using lambda
     sort(students.begin(), students.end(), [ ]( const std::shared_ptr<Student> lhs, const std::shared_ptr<Student> rhs ) {
        return lhs->getTotal() > rhs->getTotal();
     });
