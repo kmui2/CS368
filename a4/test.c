@@ -675,9 +675,7 @@ TEST_F(A4Test, AdvancedProcessStudentTest) {
     clearBuff(buff);
     EXPECT_EQ(ugstudentPtrs.size(), 2);
     int uid0 = ugstudentPtrs[0]->getId();
-    int uid1 = ugstudentPtrs[1]->getId();    
-    std::cout << uid0 << std::endl;
-    std::cout << uid1 << std::endl;
+    int uid1 = ugstudentPtrs[1]->getId();  
     ASSERT_TRUE(uid0 == 2 and uid1 == 1)
         << "ugstudentPtrs is not sorted in decreasing order by total " << uid0 << " " << uid1;
 
