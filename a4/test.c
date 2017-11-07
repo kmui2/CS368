@@ -679,7 +679,7 @@ TEST_F(A4Test, AdvancedProcessStudentTest) {
     std::cout << uid0 << std::endl;
     std::cout << uid1 << std::endl;
     ASSERT_TRUE(uid0 == 2 and uid1 == 1)
-        << "ugstudentPtrs is not sorted in decreasing order by total";
+        << "ugstudentPtrs is not sorted in decreasing order by total " << uid0 << " " << uid1;
 
     // Call printStudents() and computeStatistics() for grads
     printStudents(gstudentPtrs);
