@@ -62,17 +62,43 @@ const SmartInteger SmartInteger::operator+(const SmartInteger rhs) {
 
     if (lhsPos && rhsPos && (maxInt - this->num < rhs.num)) {
         std::stringstream errMsg;
-        errMsg << "Max Integer overflow occurred";
+        errMsg << "Max Integer addition overflow occurred";
         throw std::exception(errMsg.str().c_str());
     }
     else if (lhsNeg && rhsNeg && (minInt - this->num > rhs.num)) {
         std::stringstream errMsg;
-        errMsg << "Min Integer overflow occurred";
+        errMsg << "Min Integer addition overflow occurred";
         throw std::exception(errMsg.str().c_str());
     }
-    
+
     int sum = this->num + rhs.num;
     SmartInteger sumSMInt;
     sum.num = this->num + rhs.num;
+    return sum;
+}
+
+const SmartInteger SmartInteger::operator-(const SmartInteger rhs) {
+    int maxInt = std::numeric_limits<int>::max();
+    int minInt = std::numeric_limits<int>::min();
+
+    bool lhsPos = this->num > 0;
+    bool rhsPos = rhs.num > 0;
+    bool lhsNeg = this->num < 0;
+    bool rhsNeg = rhs.num < 0;
+
+    if (lhsPos && rhsNeg && (maxInt - this->num < -rhs.num)) {
+        std::stringstream errMsg;
+        errMsg << "Max Integer subtraction overflow occurred";
+        throw std::exception(errMsg.str().c_str());
+    }
+    else if (lhsNeg && rhsPos && (minInt - rhs.num < -this->num)) {
+        std::stringstream errMsg;
+        errMsg << "Min Integer subtraction overflow occurred";
+        throw std::exception(errMsg.str().c_str());
+    }
+
+    int diff = this->num + rhs.num;
+    SmartInteger diffSMInt;
+    diff.num = this->num + rhs.num;
     return sum;
 }
