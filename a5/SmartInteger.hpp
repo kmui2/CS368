@@ -27,7 +27,7 @@ class SmartInteger {
          * @brief a parameterized constructor for SmartInteger that sets the 
          * starting integer value to num.
          * */
-        SmartInteger(int num);
+        SmartInteger(const int num);
 
         /**
          * @brief This function is a simple getter that returns the integer value of the 
@@ -35,7 +35,7 @@ class SmartInteger {
          * 
          * @return the SmartInteger as an int
          * */
-        int getValue();
+        const int getValue();
 
         /**
          * @brief an overloaded operator << for ostream and SmartInteger. This should 
@@ -43,7 +43,7 @@ class SmartInteger {
          * 
          * @return the out stream
          * */
-        std::ostream& operator<<(std::ostream& os, const Complex& rhs);
+        std::ostream& operator<<(std::ostream& os);
 
         /**
          * @brief an overloaded operator < that returns whether or not the value of the left hand s
@@ -51,7 +51,7 @@ class SmartInteger {
          * 
          * @return boolean result of less than operator
          * */
-        bool operator<(SmartInteger rhs);
+        const bool operator<(const SmartInteger rhs);
 
         /**
          * @brief an overloaded operator > that returns whether or not the value of the left hand 
@@ -59,7 +59,7 @@ class SmartInteger {
          * 
          * @return boolean result of greater than operator
          * */
-        bool  operator>(SmartInteger rhs);
+        const bool  operator>(const SmartInteger rhs);
 
         /**
          * @brief an overloaded operator <= that returns whether or not the value of the left 
@@ -67,7 +67,7 @@ class SmartInteger {
          * 
          * @return boolean result of <= operator
          * */
-        bool operator<=(SmartInteger rhs);
+        const bool operator<=(const SmartInteger rhs);
 
         /**
          * @brief an overloaded operator >= that returns whether or not the value of the left hand 
@@ -75,7 +75,7 @@ class SmartInteger {
          * 
          * @return boolean result of >= operator
          * */
-        bool operator>=(SmartInteger rhs);
+        const bool operator>=(const SmartInteger rhs);
 
         /**
          * @brief an overloaded operator == that returns whether or not the value of the left hand 
@@ -83,7 +83,7 @@ class SmartInteger {
          * 
          * @return boolean result of == operator
          * */
-        bool operator==(SmartInteger rhs);
+        const bool operator==(const SmartInteger rhs);
 
         /**
          * @brief an overloaded operator != that returns whether or not the value of the left hand 
@@ -91,7 +91,7 @@ class SmartInteger {
          * 
          * @return boolean result of != operator
          * */
-        bool operator!=(SmartInteger rhs);
+        const bool operator!=(const SmartInteger rhs);
 
         /**
          * @brief an overloaded operator + that returns a SmartInteger that is the sum of two 
@@ -101,7 +101,77 @@ class SmartInteger {
          * @throws std::exception
          * @return SmartInteger result from adding the two SmartIntegers
          * */
-        SmartInteger operator+(SmartInteger rhs);
+        const SmartInteger operator+(const SmartInteger rhs);
+
+        /**
+         * @brief an overloaded operator - that returns a SmartInteger that is the difference of 
+         * two SmartIntegers. This function should detect overflow and throw an std::exception 
+         * if the subtraction causes an integer overflow.
+         * 
+         * @throws std::exception
+         * @return SmartInteger result from subtracting the two SmartIntegers
+         * */
+        const SmartInteger operator-(const SmartInteger rhs);
+
+        /**
+         * @brief an overloaded operator * that returns a SmartInteger that is the product of two 
+         * SmartIntegers. This function should detect overflow and throw an std::exception if the 
+         * multiplication causes an integer overflow. 
+         * 
+         * @throws std::exception
+         * @return SmartInteger result from multiplying the two SmartIntegers
+         * */
+        const SmartInteger operator*(const SmartInteger rhs);
+
+        /**
+         * @brief an overloaded operator += that adds the right operand and the left operand and 
+         * stores the new value in the left operand. This function should also throw an 
+         * std::exception in the case of overflow, and the internal value should not be changedin 
+         * the case of overflow.
+         * 
+         * @return SmartInteger result from adding and assigning another SmartInteger
+         * */
+        const SmartInteger operator+=(const SmartInteger rhs);
+
+        /**
+         * @brief an overloaded operator -= that subtracts the right operand from the left operand 
+         * and stores the new value in the left operand. This function should also throw an 
+         * std::exception in the case of overflow, and the internal value should not be changedin 
+         * the case of overflow.
+         * 
+         * @return SmartInteger result from subtracting and assigning another SmartInteger
+         * */
+        const SmartInteger operator-=(const SmartInteger rhs);
+
+        /**
+         * @brief an overloaded operator *= that multiplies the right operand and the left operand 
+         * and stores the new value in the left operand. This function should also throw an 
+         * std::exception in the case of overflow, and the internal value should not be changed 
+         * in the case of overflow.
+         * 
+         * @return SmartInteger result from multiplying and assigning another SmartInteger
+         * */
+        const SmartInteger operator*=(const SmartInteger rhs);
+
+        /**
+         * @brief an overloaded pre-increment operator, ++, that adds 1 to the current SmartInteger 
+         * and returns the changed SmartInteger. This function should also throw an std::exception 
+         * in the case of overflow, and the internal value should not be changed in the case of 
+         * overflow.
+         * 
+         * @return SmartInteger result from preprending the SmartInteger
+         * */
+        const SmartInteger ++operator(const SmartInteger rhs);
+
+        /**
+         * @brief an overloaded pre-decrement operator, --, that subtracts 1 from the current 
+         * SmartInteger and returns the changed SmartInteger. This function should also throw an 
+         * std::exception in the case of overflow, and the internal value should not be changedin 
+         * the case of overflow.
+         * 
+         * @return SmartInteger result from preprending the SmartInteger
+         * */
+        const SmartInteger --operator(const SmartInteger rhs);
 };
 
 #endif // A5_SMARTINTEGER_HPP
