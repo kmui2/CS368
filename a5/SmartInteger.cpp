@@ -9,6 +9,7 @@
 #include "SmartInteger.hpp"
 
 #include <iostream>
+#include <cmath> 
 
 SmartInteger::SmartInteger() {
     this->num = 0;
@@ -71,8 +72,7 @@ const SmartInteger SmartInteger::operator+(const SmartInteger rhs) {
         throw std::exception(errMsg.str().c_str());
     }
 
-    int sum = this->num + rhs.num;
-    SmartInteger sumSMInt;
+    SmartInteger sum;
     sum.num = this->num + rhs.num;
     return sum;
 }
@@ -97,8 +97,67 @@ const SmartInteger SmartInteger::operator-(const SmartInteger rhs) {
         throw std::exception(errMsg.str().c_str());
     }
 
-    int diff = this->num + rhs.num;
-    SmartInteger diffSMInt;
-    diff.num = this->num + rhs.num;
-    return sum;
+    SmartInteger diff;
+    diff.num = this->num - rhs.num;
+    return diff;
+}
+
+const SmartInteger operator*(const SmartInteger rhs) {
+    if (this->num == 0 || rhs.num == 0) {
+        return new SmartInteger(0);
+    }
+    int maxInt = std::numeric_limits<int>::max();
+    int minInt = std::numeric_limits<int>::min();
+
+    if (lhsPos && rhsPos && (maxInt/this->num < rhs.num)) {
+        std::stringstream errMsg;
+        errMsg << "Max Integer multiplication overflow occurred";
+        throw std::exception(errMsg.str().c_str());
+    }
+    else if (lhsNeg && rhsNeg && (maxInt/(-this->num) < -rhs.num)) {
+        std::stringstream errMsg;
+        errMsg << "Max Integer multiplication overflow occurred";
+        throw std::exception(errMsg.str().c_str());
+    }
+    else if (lhsPos && rhsNeg && (minInt/(rhsNeg) < this->num)) {
+        std::stringstream errMsg;
+        errMsg << "Min Integer multiplication overflow occurred";
+        throw std::exception(errMsg.str().c_str());
+    }
+    else if (lhsNeg && rhsPos && (minInt/(this->num) < rhs.num)) {
+        std::stringstream errMsg;
+        errMsg << "Min Integer multiplication overflow occurred";
+        throw std::exception(errMsg.str().c_str());
+    }
+
+    SmartInteger product;
+    product.num = this->num * rhs.num;
+    return product;
+};
+
+const SmartInteger operator+=(const SmartInteger rhs) {
+    *this = *this + rhs;
+    return *this;
+};
+
+const SmartInteger operator-=(const SmartInteger rhs) {
+    *this = *this - rhs;
+    return *this;
+}
+
+const SmartInteger operator*=(const SmartInteger rhs) {
+    *this = *this * rhs;
+    return *this;
+}
+
+const SmartInteger ++operator() {
+    SmartInteger one = new SmartInteger(1);
+    *this = *this + one;
+    return *this;
+}
+
+const SmartInteger --operator() {
+    SmartInteger one = new SmartInteger(1);
+    *this = *this - one;
+    return *this;
 }
