@@ -22,7 +22,7 @@ SmartInteger::SmartInteger(const int num) {
     this->num = num;
 }
 
-const int SmartInteger::getValue() {
+const int SmartInteger::getValue() const {
     return this->num;
 }
 
