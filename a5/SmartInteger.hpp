@@ -186,7 +186,7 @@ class SmartInteger {
          * 
          * @return SmartInteger result from preprending the SmartInteger
          * */
-        const SmartInteger operator++();
+        const SmartInteger operator--();
 };
 
 #endif // A5_SMARTINTEGER_HPP

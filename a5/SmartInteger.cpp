@@ -107,7 +107,7 @@ const SmartInteger SmartInteger::operator-(const SmartInteger rhs) {
 
 const SmartInteger SmartInteger::operator*(const SmartInteger rhs) {
     if (this->num == 0 || rhs.num == 0) {
-        return new SmartInteger(0);
+        return SmartInteger(0);
     }
     const int maxInt = std::numeric_limits<int>::max();
     const int minInt = std::numeric_limits<int>::min();
@@ -159,13 +159,11 @@ const SmartInteger SmartInteger::operator*=(const SmartInteger rhs) {
 }
 
 const SmartInteger SmartInteger::operator++() {
-    SmartInteger one = new SmartInteger(1);
-    *this = *this + one;
+    *this = *this + SmartInteger(1);
     return *this;
 }
 
 const SmartInteger SmartInteger::operator--() {
-    SmartInteger one = new SmartInteger(1);
-    *this = *this - one;
+    *this = *this - SmartInteger(1);
     return *this;
 }
