@@ -176,7 +176,7 @@ class SmartInteger {
          * 
          * @return SmartInteger result from preprending the SmartInteger
          * */
-        const SmartInteger ++operator();
+        const SmartInteger operator++();
 
         /**
          * @brief an overloaded pre-decrement operator, --, that subtracts 1 from the current 
@@ -186,7 +186,7 @@ class SmartInteger {
          * 
          * @return SmartInteger result from preprending the SmartInteger
          * */
-        const SmartInteger --operator();
+        const SmartInteger operator++();
 };
 
 #endif // A5_SMARTINTEGER_HPP
