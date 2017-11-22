@@ -26,8 +26,8 @@ int SmartInteger::getValue() const {
     return this->num;
 }
 
-std::ostream& SmartInteger::operator<<(std::ostream& os) const {
-    os << this->num;
+std::ostream& SmartInteger::operator<<(std::ostream& os, SmartInteger rhs) const {
+    os << rhs.num;
     return os;
 }
 

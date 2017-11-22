@@ -46,7 +46,7 @@ class SmartInteger {
          * @param the outstream to print
          * @return the out stream
          * */
-        std::ostream& operator<<(std::ostream& os) const;
+        std::ostream& operator<<(std::ostream& os, SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator < that returns whether or not the value of the left hand s
