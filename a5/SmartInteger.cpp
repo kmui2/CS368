@@ -26,36 +26,36 @@ int SmartInteger::getValue() const {
     return this->num;
 }
 
-std::ostream& SmartInteger::operator<<(std::ostream& os) {
+std::ostream& SmartInteger::operator<<(std::ostream& os) const {
     os << this->num;
     return os;
 }
 
-bool SmartInteger::operator<( SmartInteger rhs) {
+bool SmartInteger::operator<( SmartInteger rhs) const {
     return this->num < rhs.num;
 }
 
-bool  SmartInteger::operator>( SmartInteger rhs) {
+bool  SmartInteger::operator>( SmartInteger rhs) const {
     return this->num > rhs.num;
 }
 
-bool SmartInteger::operator<=( SmartInteger rhs) {
+bool SmartInteger::operator<=( SmartInteger rhs) const {
     return this->num <= rhs.num;
 }
 
-bool SmartInteger::operator>=( SmartInteger rhs) {
+bool SmartInteger::operator>=( SmartInteger rhs) const {
     return this->num >= rhs.num;
 }
 
-bool SmartInteger::operator==( SmartInteger rhs) {
+bool SmartInteger::operator==( SmartInteger rhs) const {
     return this->num == rhs.num;
 }
 
-bool SmartInteger::operator!=( SmartInteger rhs) {
+bool SmartInteger::operator!=( SmartInteger rhs) const {
     return this->num != rhs.num;
 }
 
-SmartInteger SmartInteger::operator+( SmartInteger rhs) {
+SmartInteger SmartInteger::operator+( SmartInteger rhs) const{
      int maxInt = std::numeric_limits<int>::max();
      int minInt = std::numeric_limits<int>::min();
 
@@ -80,7 +80,7 @@ SmartInteger SmartInteger::operator+( SmartInteger rhs) {
     return sum;
 }
 
-SmartInteger SmartInteger::operator-( SmartInteger rhs) {
+SmartInteger SmartInteger::operator-( SmartInteger rhs) const {
      int maxInt = std::numeric_limits<int>::max();
      int minInt = std::numeric_limits<int>::min();
 
@@ -105,7 +105,7 @@ SmartInteger SmartInteger::operator-( SmartInteger rhs) {
     return diff;
 }
 
-SmartInteger SmartInteger::operator*( SmartInteger rhs) {
+SmartInteger SmartInteger::operator*( SmartInteger rhs) const {
     if (this->num == 0 || rhs.num == 0) {
         return SmartInteger(0);
     }

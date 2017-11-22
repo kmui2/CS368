@@ -46,7 +46,7 @@ class SmartInteger {
          * @param the outstream to print
          * @return the out stream
          * */
-        std::ostream& operator<<(std::ostream& os);
+        std::ostream& operator<<(std::ostream& os) const;
 
         /**
          * @brief an overloaded operator < that returns whether or not the value of the left hand s
@@ -55,7 +55,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return boolean result of less than operator
          * */
-        bool operator<( SmartInteger rhs);
+        bool operator<( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator > that returns whether or not the value of the left hand 
@@ -64,7 +64,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return boolean result of greater than operator
          * */
-        bool  operator>( SmartInteger rhs);
+        bool  operator>( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator <= that returns whether or not the value of the left 
@@ -73,7 +73,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return boolean result of <= operator
          * */
-        bool operator<=( SmartInteger rhs);
+        bool operator<=( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator >= that returns whether or not the value of the left hand 
@@ -82,7 +82,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return boolean result of >= operator
          * */
-        bool operator>=( SmartInteger rhs);
+        bool operator>=( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator == that returns whether or not the value of the left hand 
@@ -91,7 +91,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return boolean result of == operator
          * */
-        bool operator==( SmartInteger rhs);
+        bool operator==( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator != that returns whether or not the value of the left hand 
@@ -100,7 +100,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return boolean result of != operator
          * */
-        bool operator!=( SmartInteger rhs);
+        bool operator!=( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator + that returns a SmartInteger that is the sum of two 
@@ -111,7 +111,7 @@ class SmartInteger {
          * @throws std::exception
          * @return SmartInteger result from adding the two SmartIntegers
          * */
-        SmartInteger operator+( SmartInteger rhs);
+        SmartInteger operator+( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator - that returns a SmartInteger that is the difference of 
@@ -122,7 +122,7 @@ class SmartInteger {
          * @throws std::exception
          * @return SmartInteger result from subtracting the two SmartIntegers
          * */
-        SmartInteger operator-( SmartInteger rhs);
+        SmartInteger operator-( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator * that returns a SmartInteger that is the product of two 
@@ -133,7 +133,7 @@ class SmartInteger {
          * @throws std::exception
          * @return SmartInteger result from multiplying the two SmartIntegers
          * */
-        SmartInteger operator*( SmartInteger rhs);
+        SmartInteger operator*( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator += that adds the right operand and the left operand and 
