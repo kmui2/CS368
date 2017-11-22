@@ -37,7 +37,7 @@ class SmartInteger {
          * 
          * @return the SmartInteger as an int
          * */
-        int getValue();
+        int getValue() const;
 
         /**
          * @brief an overloaded operator << for ostream and SmartInteger. This should 
