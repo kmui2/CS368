@@ -43,10 +43,11 @@ class SmartInteger {
          * @brief an overloaded operator << for ostream and SmartInteger. This should 
          * display the integer value of the SmartInteger as if it were calling getValue().
          * 
-         * @param the outstream to print
+         * @param the outstream to print to
+         * @param the SmartInteger to print
          * @return the out stream
          * */
-        std::ostream& operator<<(std::ostream& os, SmartInteger rhs) const;
+        friend std::ostream& operator<<(std::ostream& os, const SmartInteger& rhs);
 
         /**
          * @brief an overloaded operator < that returns whether or not the value of the left hand s

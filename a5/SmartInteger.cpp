@@ -26,33 +26,33 @@ int SmartInteger::getValue() const {
     return this->num;
 }
 
-std::ostream& SmartInteger::operator<<(std::ostream& os, SmartInteger rhs) const {
-    os << rhs.num;
+std::ostream& operator<<(std::ostream& os, const SmartInteger& rhs) {
+    os << rhs.getValue();
     return os;
 }
 
 bool SmartInteger::operator<( SmartInteger rhs) const {
-    return this->num < rhs.num;
+    return this->num < rhs.getValue();
 }
 
 bool  SmartInteger::operator>( SmartInteger rhs) const {
-    return this->num > rhs.num;
+    return this->num > rhs.getValue();
 }
 
 bool SmartInteger::operator<=( SmartInteger rhs) const {
-    return this->num <= rhs.num;
+    return this->num <= rhs.getValue();
 }
 
 bool SmartInteger::operator>=( SmartInteger rhs) const {
-    return this->num >= rhs.num;
+    return this->num >= rhs.getValue();
 }
 
 bool SmartInteger::operator==( SmartInteger rhs) const {
-    return this->num == rhs.num;
+    return this->num == rhs.getValue();
 }
 
 bool SmartInteger::operator!=( SmartInteger rhs) const {
-    return this->num != rhs.num;
+    return this->num != rhs.getValue();
 }
 
 SmartInteger SmartInteger::operator+( SmartInteger rhs) const{
@@ -60,23 +60,23 @@ SmartInteger SmartInteger::operator+( SmartInteger rhs) const{
      int minInt = std::numeric_limits<int>::min();
 
      bool lhsPos = this->num > 0;
-     bool rhsPos = rhs.num > 0;
+     bool rhsPos = rhs.getValue() > 0;
      bool lhsNeg = this->num < 0;
-     bool rhsNeg = rhs.num < 0;
+     bool rhsNeg = rhs.getValue() < 0;
 
-    if (lhsPos && rhsPos && (maxInt - this->num < rhs.num)) {
+    if (lhsPos && rhsPos && (maxInt - this->num < rhs.getValue())) {
         std::stringstream errMsg;
         errMsg << "Max Integer addition overflow occurred";
         throw std::runtime_error(errMsg.str().c_str());
     }
-    else if (lhsNeg && rhsNeg && (minInt - this->num > rhs.num)) {
+    else if (lhsNeg && rhsNeg && (minInt - this->num > rhs.getValue())) {
         std::stringstream errMsg;
         errMsg << "Min Integer addition overflow occurred";
         throw std::runtime_error(errMsg.str().c_str());
     }
 
     SmartInteger sum;
-    sum.num = this->num + rhs.num;
+    sum.num = this->num + rhs.getValue();
     return sum;
 }
 
@@ -85,44 +85,44 @@ SmartInteger SmartInteger::operator-( SmartInteger rhs) const {
      int minInt = std::numeric_limits<int>::min();
 
      bool lhsPos = this->num > 0;
-     bool rhsPos = rhs.num > 0;
+     bool rhsPos = rhs.getValue() > 0;
      bool lhsNeg = this->num < 0;
-     bool rhsNeg = rhs.num < 0;
+     bool rhsNeg = rhs.getValue() < 0;
 
-    if (lhsPos && rhsNeg && (maxInt - this->num < -rhs.num)) {
+    if (lhsPos && rhsNeg && (maxInt - this->num < -rhs.getValue())) {
         std::stringstream errMsg;
         errMsg << "Max Integer subtraction overflow occurred";
         throw std::runtime_error(errMsg.str().c_str());
     }
-    else if (lhsNeg && rhsPos && (minInt - rhs.num < -this->num)) {
+    else if (lhsNeg && rhsPos && (minInt - rhs.getValue() < -this->num)) {
         std::stringstream errMsg;
         errMsg << "Min Integer subtraction overflow occurred";
         throw std::runtime_error(errMsg.str().c_str());
     }
 
     SmartInteger diff;
-    diff.num = this->num - rhs.num;
+    diff.num = this->num - rhs.getValue();
     return diff;
 }
 
 SmartInteger SmartInteger::operator*( SmartInteger rhs) const {
-    if (this->num == 0 || rhs.num == 0) {
+    if (this->num == 0 || rhs.getValue() == 0) {
         return SmartInteger(0);
     }
      int maxInt = std::numeric_limits<int>::max();
      int minInt = std::numeric_limits<int>::min();
 
      bool lhsPos = this->num > 0;
-     bool rhsPos = rhs.num > 0;
+     bool rhsPos = rhs.getValue() > 0;
      bool lhsNeg = this->num < 0;
-     bool rhsNeg = rhs.num < 0;
+     bool rhsNeg = rhs.getValue() < 0;
 
-    if (lhsPos && rhsPos && (maxInt/this->num < rhs.num)) {
+    if (lhsPos && rhsPos && (maxInt/this->num < rhs.getValue())) {
         std::stringstream errMsg;
         errMsg << "Max Integer multiplication overflow occurred";
         throw std::runtime_error(errMsg.str().c_str());
     }
-    else if (lhsNeg && rhsNeg && (maxInt/(-this->num) < -rhs.num)) {
+    else if (lhsNeg && rhsNeg && (maxInt/(-this->num) < -rhs.getValue())) {
         std::stringstream errMsg;
         errMsg << "Max Integer multiplication overflow occurred";
         throw std::runtime_error(errMsg.str().c_str());
@@ -132,14 +132,14 @@ SmartInteger SmartInteger::operator*( SmartInteger rhs) const {
         errMsg << "Min Integer multiplication overflow occurred";
         throw std::runtime_error(errMsg.str().c_str());
     }
-    else if (lhsNeg && rhsPos && (minInt/(this->num) < rhs.num)) {
+    else if (lhsNeg && rhsPos && (minInt/(this->num) < rhs.getValue())) {
         std::stringstream errMsg;
         errMsg << "Min Integer multiplication overflow occurred";
         throw std::runtime_error(errMsg.str().c_str());
     }
 
     SmartInteger product;
-    product.num = this->num * rhs.num;
+    product.num = this->num * rhs.getValue();
     return product;
 };
 
