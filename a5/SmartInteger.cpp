@@ -18,7 +18,7 @@ SmartInteger::SmartInteger() {
     this->num = 0;
 }
 
-SmartInteger::SmartInteger(const int num) {
+SmartInteger::SmartInteger(int num) {
     this->num = num;
 }
 
@@ -31,38 +31,38 @@ std::ostream& SmartInteger::operator<<(std::ostream& os) {
     return os;
 }
 
-bool SmartInteger::operator<(const SmartInteger rhs) {
+bool SmartInteger::operator<( SmartInteger rhs) {
     return this->num < rhs.num;
 }
 
-bool  SmartInteger::operator>(const SmartInteger rhs) {
+bool  SmartInteger::operator>( SmartInteger rhs) {
     return this->num > rhs.num;
 }
 
-bool SmartInteger::operator<=(const SmartInteger rhs) {
+bool SmartInteger::operator<=( SmartInteger rhs) {
     return this->num <= rhs.num;
 }
 
-bool SmartInteger::operator>=(const SmartInteger rhs) {
+bool SmartInteger::operator>=( SmartInteger rhs) {
     return this->num >= rhs.num;
 }
 
-bool SmartInteger::operator==(const SmartInteger rhs) {
+bool SmartInteger::operator==( SmartInteger rhs) {
     return this->num == rhs.num;
 }
 
-bool SmartInteger::operator!=(const SmartInteger rhs) {
+bool SmartInteger::operator!=( SmartInteger rhs) {
     return this->num != rhs.num;
 }
 
-SmartInteger SmartInteger::operator+(const SmartInteger rhs) {
-    const int maxInt = std::numeric_limits<int>::max();
-    const int minInt = std::numeric_limits<int>::min();
+SmartInteger SmartInteger::operator+( SmartInteger rhs) {
+     int maxInt = std::numeric_limits<int>::max();
+     int minInt = std::numeric_limits<int>::min();
 
-    const bool lhsPos = this->num > 0;
-    const bool rhsPos = rhs.num > 0;
-    const bool lhsNeg = this->num < 0;
-    const bool rhsNeg = rhs.num < 0;
+     bool lhsPos = this->num > 0;
+     bool rhsPos = rhs.num > 0;
+     bool lhsNeg = this->num < 0;
+     bool rhsNeg = rhs.num < 0;
 
     if (lhsPos && rhsPos && (maxInt - this->num < rhs.num)) {
         std::stringstream errMsg;
@@ -80,14 +80,14 @@ SmartInteger SmartInteger::operator+(const SmartInteger rhs) {
     return sum;
 }
 
-SmartInteger SmartInteger::operator-(const SmartInteger rhs) {
-    const int maxInt = std::numeric_limits<int>::max();
-    const int minInt = std::numeric_limits<int>::min();
+SmartInteger SmartInteger::operator-( SmartInteger rhs) {
+     int maxInt = std::numeric_limits<int>::max();
+     int minInt = std::numeric_limits<int>::min();
 
-    const bool lhsPos = this->num > 0;
-    const bool rhsPos = rhs.num > 0;
-    const bool lhsNeg = this->num < 0;
-    const bool rhsNeg = rhs.num < 0;
+     bool lhsPos = this->num > 0;
+     bool rhsPos = rhs.num > 0;
+     bool lhsNeg = this->num < 0;
+     bool rhsNeg = rhs.num < 0;
 
     if (lhsPos && rhsNeg && (maxInt - this->num < -rhs.num)) {
         std::stringstream errMsg;
@@ -105,17 +105,17 @@ SmartInteger SmartInteger::operator-(const SmartInteger rhs) {
     return diff;
 }
 
-SmartInteger SmartInteger::operator*(const SmartInteger rhs) {
+SmartInteger SmartInteger::operator*( SmartInteger rhs) {
     if (this->num == 0 || rhs.num == 0) {
         return SmartInteger(0);
     }
-    const int maxInt = std::numeric_limits<int>::max();
-    const int minInt = std::numeric_limits<int>::min();
+     int maxInt = std::numeric_limits<int>::max();
+     int minInt = std::numeric_limits<int>::min();
 
-    const bool lhsPos = this->num > 0;
-    const bool rhsPos = rhs.num > 0;
-    const bool lhsNeg = this->num < 0;
-    const bool rhsNeg = rhs.num < 0;
+     bool lhsPos = this->num > 0;
+     bool rhsPos = rhs.num > 0;
+     bool lhsNeg = this->num < 0;
+     bool rhsNeg = rhs.num < 0;
 
     if (lhsPos && rhsPos && (maxInt/this->num < rhs.num)) {
         std::stringstream errMsg;
@@ -143,17 +143,17 @@ SmartInteger SmartInteger::operator*(const SmartInteger rhs) {
     return product;
 };
 
-SmartInteger SmartInteger::operator+=(const SmartInteger rhs) {
+SmartInteger SmartInteger::operator+=( SmartInteger rhs) {
     *this = *this + rhs;
     return *this;
 };
 
-SmartInteger SmartInteger::operator-=(const SmartInteger rhs) {
+SmartInteger SmartInteger::operator-=( SmartInteger rhs) {
     *this = *this - rhs;
     return *this;
 }
 
-SmartInteger SmartInteger::operator*=(const SmartInteger rhs) {
+SmartInteger SmartInteger::operator*=( SmartInteger rhs) {
     *this = *this * rhs;
     return *this;
 }
