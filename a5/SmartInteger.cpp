@@ -31,31 +31,31 @@ std::ostream& operator<<(std::ostream& os, const SmartInteger& rhs) {
     return os;
 }
 
-bool SmartInteger::operator<( SmartInteger rhs) const {
+const bool SmartInteger::operator<( SmartInteger rhs) const {
     return this->num < rhs.getValue();
 }
 
-bool  SmartInteger::operator>( SmartInteger rhs) const {
+const bool  SmartInteger::operator>( SmartInteger rhs) const {
     return this->num > rhs.getValue();
 }
 
-bool SmartInteger::operator<=( SmartInteger rhs) const {
+const bool SmartInteger::operator<=( SmartInteger rhs) const {
     return this->num <= rhs.getValue();
 }
 
-bool SmartInteger::operator>=( SmartInteger rhs) const {
+const bool SmartInteger::operator>=( SmartInteger rhs) const {
     return this->num >= rhs.getValue();
 }
 
-bool SmartInteger::operator==( SmartInteger rhs) const {
+const bool SmartInteger::operator==( SmartInteger rhs) const {
     return this->num == rhs.getValue();
 }
 
-bool SmartInteger::operator!=( SmartInteger rhs) const {
+const bool SmartInteger::operator!=( SmartInteger rhs) const {
     return this->num != rhs.getValue();
 }
 
-SmartInteger SmartInteger::operator+( SmartInteger rhs) const{
+const SmartInteger SmartInteger::operator+( SmartInteger rhs) const{
      int maxInt = std::numeric_limits<int>::max();
      int minInt = std::numeric_limits<int>::min();
 
@@ -80,7 +80,7 @@ SmartInteger SmartInteger::operator+( SmartInteger rhs) const{
     return sum;
 }
 
-SmartInteger SmartInteger::operator-( SmartInteger rhs) const {
+const SmartInteger SmartInteger::operator-( SmartInteger rhs) const {
      int maxInt = std::numeric_limits<int>::max();
      int minInt = std::numeric_limits<int>::min();
 
@@ -105,7 +105,7 @@ SmartInteger SmartInteger::operator-( SmartInteger rhs) const {
     return diff;
 }
 
-SmartInteger SmartInteger::operator*( SmartInteger rhs) const {
+const SmartInteger SmartInteger::operator*( SmartInteger rhs) const {
     if (this->num == 0 || rhs.getValue() == 0) {
         return SmartInteger(0);
     }
@@ -143,27 +143,27 @@ SmartInteger SmartInteger::operator*( SmartInteger rhs) const {
     return product;
 };
 
-SmartInteger SmartInteger::operator+=( SmartInteger rhs) {
+const SmartInteger SmartInteger::operator+=( SmartInteger rhs) {
     *this = *this + rhs;
     return *this;
 };
 
-SmartInteger SmartInteger::operator-=( SmartInteger rhs) {
+const SmartInteger SmartInteger::operator-=( SmartInteger rhs) {
     *this = *this - rhs;
     return *this;
 }
 
-SmartInteger SmartInteger::operator*=( SmartInteger rhs) {
+const SmartInteger SmartInteger::operator*=( SmartInteger rhs) {
     *this = *this * rhs;
     return *this;
 }
 
-SmartInteger SmartInteger::operator++() {
+const SmartInteger SmartInteger::operator++() {
     *this = *this + SmartInteger(1);
     return *this;
 }
 
-SmartInteger SmartInteger::operator--() {
+const SmartInteger SmartInteger::operator--() {
     *this = *this - SmartInteger(1);
     return *this;
 }

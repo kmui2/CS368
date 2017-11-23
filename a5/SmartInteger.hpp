@@ -56,7 +56,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return boolean result of less than operator
          * */
-        bool operator<( SmartInteger rhs) const;
+        const bool operator<( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator > that returns whether or not the value of the left hand 
@@ -65,7 +65,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return boolean result of greater than operator
          * */
-        bool  operator>( SmartInteger rhs) const;
+        const bool  operator>( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator <= that returns whether or not the value of the left 
@@ -74,7 +74,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return boolean result of <= operator
          * */
-        bool operator<=( SmartInteger rhs) const;
+        const bool operator<=( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator >= that returns whether or not the value of the left hand 
@@ -83,7 +83,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return boolean result of >= operator
          * */
-        bool operator>=( SmartInteger rhs) const;
+        const bool operator>=( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator == that returns whether or not the value of the left hand 
@@ -92,7 +92,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return boolean result of == operator
          * */
-        bool operator==( SmartInteger rhs) const;
+        const bool operator==( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator != that returns whether or not the value of the left hand 
@@ -101,7 +101,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return boolean result of != operator
          * */
-        bool operator!=( SmartInteger rhs) const;
+        const bool operator!=( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator + that returns a SmartInteger that is the sum of two 
@@ -112,7 +112,7 @@ class SmartInteger {
          * @throws std::exception
          * @return SmartInteger result from adding the two SmartIntegers
          * */
-        SmartInteger operator+( SmartInteger rhs) const;
+        const SmartInteger operator+( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator - that returns a SmartInteger that is the difference of 
@@ -123,7 +123,7 @@ class SmartInteger {
          * @throws std::exception
          * @return SmartInteger result from subtracting the two SmartIntegers
          * */
-        SmartInteger operator-( SmartInteger rhs) const;
+        const SmartInteger operator-( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator * that returns a SmartInteger that is the product of two 
@@ -134,7 +134,7 @@ class SmartInteger {
          * @throws std::exception
          * @return SmartInteger result from multiplying the two SmartIntegers
          * */
-        SmartInteger operator*( SmartInteger rhs) const;
+        const SmartInteger operator*( SmartInteger rhs) const;
 
         /**
          * @brief an overloaded operator += that adds the right operand and the left operand and 
@@ -145,7 +145,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return SmartInteger result from adding and assigning another SmartInteger
          * */
-        SmartInteger operator+=( SmartInteger rhs);
+        const SmartInteger operator+=( SmartInteger rhs);
 
         /**
          * @brief an overloaded operator -= that subtracts the right operand from the left operand 
@@ -156,7 +156,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return SmartInteger result from subtracting and assigning another SmartInteger
          * */
-        SmartInteger operator-=( SmartInteger rhs);
+        const SmartInteger operator-=( SmartInteger rhs);
 
         /**
          * @brief an overloaded operator *= that multiplies the right operand and the left operand 
@@ -167,7 +167,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return SmartInteger result from multiplying and assigning another SmartInteger
          * */
-        SmartInteger operator*=( SmartInteger rhs);
+        const SmartInteger operator*=( SmartInteger rhs);
 
         /**
          * @brief an overloaded pre-increment operator, ++, that adds 1 to the current SmartInteger 
@@ -177,7 +177,7 @@ class SmartInteger {
          * 
          * @return SmartInteger result from preprending the SmartInteger
          * */
-        SmartInteger operator++();
+        const SmartInteger operator++();
 
         /**
          * @brief an overloaded pre-decrement operator, --, that subtracts 1 from the current 
@@ -187,7 +187,7 @@ class SmartInteger {
          * 
          * @return SmartInteger result from preprending the SmartInteger
          * */
-        SmartInteger operator--();
+        const SmartInteger operator--();
 };
 
 #endif // A5_SMARTINTEGER_HPP
