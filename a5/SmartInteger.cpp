@@ -143,27 +143,27 @@ const SmartInteger SmartInteger::operator*( SmartInteger rhs) const {
     return product;
 };
 
-const SmartInteger SmartInteger::operator+=( SmartInteger rhs) {
+SmartInteger SmartInteger::operator+=( SmartInteger rhs) {
     *this = *this + rhs;
     return *this;
 };
 
-const SmartInteger SmartInteger::operator-=( SmartInteger rhs) {
+SmartInteger SmartInteger::operator-=( SmartInteger rhs) {
     *this = *this - rhs;
     return *this;
 }
 
-const SmartInteger SmartInteger::operator*=( SmartInteger rhs) {
+SmartInteger SmartInteger::operator*=( SmartInteger rhs) {
     *this = *this * rhs;
     return *this;
 }
 
-const SmartInteger SmartInteger::operator++() {
+SmartInteger SmartInteger::operator++() {
     *this = *this + SmartInteger(1);
     return *this;
 }
 
-const SmartInteger SmartInteger::operator--() {
+SmartInteger SmartInteger::operator--() {
     *this = *this - SmartInteger(1);
     return *this;
 }
