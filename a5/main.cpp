@@ -34,12 +34,12 @@ int main() {
     // std::cout << n4 << std::endl;
 
     
-    SmartInteger n1(2);
-    SmartInteger n2(-3);
-    SmartInteger n3(std::numeric_limits<int>::max());
-    SmartInteger n4(std::numeric_limits<int>::min());
+    // SmartInteger n1(2);
+    // SmartInteger n2(-3);
+    // SmartInteger n3(std::numeric_limits<int>::max());
+    // SmartInteger n4(std::numeric_limits<int>::min());
 
-    std::cout << n1 - n4 << std::endl;
+    // std::cout << n1 - n4 << std::endl;
 
     
     // SmartInteger n4(2);
@@ -48,6 +48,12 @@ int main() {
     // (n4 += n5);
     // n4 += n6;
     // std::cout << n4 << std::endl;
+
+    
+    SmartInteger n1(2);
+    SmartInteger n2(-2);
+
+    std::cout << n1 * n2 << std::endl;
 
     return 0;
 }
