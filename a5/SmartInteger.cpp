@@ -19,7 +19,7 @@ SmartInteger::SmartInteger() {
     this->num = 0;
 }
 
-SmartInteger::SmartInteger(int num) {
+SmartInteger::SmartInteger(const int num) {
     // initialize to num
     this->num = num;
 }
@@ -35,37 +35,37 @@ std::ostream& operator<<(std::ostream& os, const SmartInteger& rhs) {
     return os;
 }
 
-const bool SmartInteger::operator<( SmartInteger rhs) const {
+const bool SmartInteger::operator<(const SmartInteger rhs) const {
     // compare as int for < 
     return this->num < rhs.getValue();
 }
 
-const bool  SmartInteger::operator>( SmartInteger rhs) const {
+const bool  SmartInteger::operator>(const SmartInteger rhs) const {
     // compare as int for >
     return this->num > rhs.getValue();
 }
 
-const bool SmartInteger::operator<=( SmartInteger rhs) const {
+const bool SmartInteger::operator<=(const SmartInteger rhs) const {
     // compare as int for <=
     return this->num <= rhs.getValue();
 }
 
-const bool SmartInteger::operator>=( SmartInteger rhs) const {
+const bool SmartInteger::operator>=(const SmartInteger rhs) const {
     // compare as int for >=
     return this->num >= rhs.getValue();
 }
 
-const bool SmartInteger::operator==( SmartInteger rhs) const {
+const bool SmartInteger::operator==(const SmartInteger rhs) const {
     // compare as int for ==
     return this->num == rhs.getValue();
 }
 
-const bool SmartInteger::operator!=( SmartInteger rhs) const {
+const bool SmartInteger::operator!=(const SmartInteger rhs) const {
     // compare as int for != 
     return this->num != rhs.getValue();
 }
 
-const SmartInteger SmartInteger::operator+( SmartInteger rhs) const{
+const SmartInteger SmartInteger::operator+(const SmartInteger rhs) const{
      int maxInt = std::numeric_limits<int>::max();
      int minInt = std::numeric_limits<int>::min();
 
@@ -97,7 +97,7 @@ const SmartInteger SmartInteger::operator+( SmartInteger rhs) const{
     return sum;
 }
 
-const SmartInteger SmartInteger::operator-( SmartInteger rhs) const {
+const SmartInteger SmartInteger::operator-(const SmartInteger rhs) const {
      int maxInt = std::numeric_limits<int>::max();
      int minInt = std::numeric_limits<int>::min();
 
@@ -127,7 +127,7 @@ const SmartInteger SmartInteger::operator-( SmartInteger rhs) const {
     return diff;
 }
 
-const SmartInteger SmartInteger::operator*( SmartInteger rhs) const {
+const SmartInteger SmartInteger::operator*(const SmartInteger rhs) const {
     // product is 0 if either of the two integers are 0 
     // (helps prevent divide by zero when doing other overflow checking)
     if (this->num == 0 || rhs.getValue() == 0)
@@ -181,19 +181,19 @@ const SmartInteger SmartInteger::operator*( SmartInteger rhs) const {
     return product;
 };
 
-SmartInteger& SmartInteger::operator+=( SmartInteger rhs) {
+SmartInteger& SmartInteger::operator+=(const SmartInteger rhs) {
     // update this and return sum
     *this = *this + rhs;
     return *this;
 };
 
-SmartInteger& SmartInteger::operator-=( SmartInteger rhs) {
+SmartInteger& SmartInteger::operator-=(const SmartInteger rhs) {
     // update this and return difference
     *this = *this - rhs;
     return *this;
 }
 
-SmartInteger& SmartInteger::operator*=( SmartInteger rhs) {
+SmartInteger& SmartInteger::operator*=(const SmartInteger rhs) {
     // update this and return product
     *this = *this * rhs;
     return *this;
