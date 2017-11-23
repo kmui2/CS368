@@ -145,7 +145,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return SmartInteger result from adding and assigning another SmartInteger
          * */
-        SmartInteger operator+=( SmartInteger rhs);
+        SmartInteger& operator+=( SmartInteger rhs);
 
         /**
          * @brief an overloaded operator -= that subtracts the right operand from the left operand 
@@ -156,7 +156,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return SmartInteger result from subtracting and assigning another SmartInteger
          * */
-        SmartInteger operator-=( SmartInteger rhs);
+        SmartInteger& operator-=( SmartInteger rhs);
 
         /**
          * @brief an overloaded operator *= that multiplies the right operand and the left operand 
@@ -167,7 +167,7 @@ class SmartInteger {
          * @param the right hand side of the operator equation
          * @return SmartInteger result from multiplying and assigning another SmartInteger
          * */
-        SmartInteger operator*=( SmartInteger rhs);
+        SmartInteger& operator*=( SmartInteger rhs);
 
         /**
          * @brief an overloaded pre-increment operator, ++, that adds 1 to the current SmartInteger 
@@ -177,7 +177,7 @@ class SmartInteger {
          * 
          * @return SmartInteger result from preprending the SmartInteger
          * */
-        SmartInteger operator++();
+        SmartInteger& operator++();
 
         /**
          * @brief an overloaded pre-decrement operator, --, that subtracts 1 from the current 
@@ -187,7 +187,7 @@ class SmartInteger {
          * 
          * @return SmartInteger result from preprending the SmartInteger
          * */
-        SmartInteger operator--();
+        SmartInteger& operator--();
 };
 
 #endif // A5_SMARTINTEGER_HPP
