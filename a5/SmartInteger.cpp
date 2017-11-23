@@ -9,7 +9,7 @@
 #include "SmartInteger.hpp"
 
 #include <iostream>
-#include <cmath> 
+#include <stdlib.h>
 #include <limits>
 #include <sstream> 
 #include <exception>
@@ -89,12 +89,21 @@ const SmartInteger SmartInteger::operator-( SmartInteger rhs) const {
      bool lhsNeg = this->num < 0;
      bool rhsNeg = rhs.getValue() < 0;
 
-    if (lhsPos && rhsNeg && (maxInt - this->num < -rhs.getValue())) {
+
+    //  std::cout << "lhsPos = " << lhsPos << std::endl;
+    //  std::cout << "rhsPos = " << rhsPos << std::endl;
+    //  std::cout << "lhsNeg = " << lhsNeg << std::endl;
+    //  std::cout << "rhsNeg = " << rhsNeg << std::endl;
+    //  std::cout << "maxInt - this->num = " << maxInt - this->num << std::endl;
+    //  std::cout << "rhs.getValue() = " << rhs.getValue() << std::endl;
+    //  std::cout << "-rhs.getValue() = " << abs(rhs.getValue()) << std::endl;
+
+    if (lhsPos && rhsNeg && (rhs.getValue() == minInt || maxInt - this->num < -rhs.getValue())) {
         std::stringstream errMsg;
         errMsg << "Max Integer subtraction overflow occurred";
         throw std::runtime_error(errMsg.str().c_str());
     }
-    else if (lhsNeg && rhsPos && (minInt - rhs.getValue() < -this->num)) {
+    else if (lhsNeg && rhsPos && (this->num == minInt || minInt - rhs.getValue() < -this->num)) {
         std::stringstream errMsg;
         errMsg << "Min Integer subtraction overflow occurred";
         throw std::runtime_error(errMsg.str().c_str());
