@@ -135,7 +135,6 @@ const SmartInteger SmartInteger::operator*(const SmartInteger rhs) const {
     
     int maxInt = std::numeric_limits<int>::max();
     int minInt = std::numeric_limits<int>::min();
-
     bool lhsPos = this->num > 0;
     bool rhsPos = rhs.getValue() > 0;
     bool lhsNeg = this->num < 0;
@@ -144,7 +143,6 @@ const SmartInteger SmartInteger::operator*(const SmartInteger rhs) const {
     /////////////////////////////////////////////////////
     // check for all cases of signs for both integers //
     ///////////////////////////////////////////////////
-
     // check for overflow with both positive integers
     // (comparison expression modified to prevent overflow) 
     if (lhsPos && rhsPos && (maxInt/this->num < rhs.getValue())) {
@@ -174,7 +172,6 @@ const SmartInteger SmartInteger::operator*(const SmartInteger rhs) const {
         errMsg << "Min Integer multiplication overflow occurred";
         throw std::runtime_error(errMsg.str().c_str());
     }
-
     // no overflow detected so it's safe to return the product
     SmartInteger product;
     product.num = this->num * rhs.getValue();
