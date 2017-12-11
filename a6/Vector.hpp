@@ -69,7 +69,7 @@ public:
     Vector &operator=(const Vector &other) {
 	    // TODO: Implement this function.
         if (this == &other) {
-            return this;
+            return *this;
         }
         delete[] elems;
         this->elems = new T[other.capacity()];
@@ -80,7 +80,7 @@ public:
         }
         this->cap = other.capacity();
         this->length = other.size();
-        return this;
+        return *this;
     }
 
     /**
