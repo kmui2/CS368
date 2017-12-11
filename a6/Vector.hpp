@@ -196,8 +196,8 @@ public:
         int diff = new_cap - this->cap;
         T* newStorage = new T[diff];
         T* newElems = new T[new_cap];
-        copy(this->elems, this->elems + this->cap, newElems);
-        copy(newStorage, newStorage + diff, newElems);
+        std::copy(this->elems, this->elems + this->cap, newElems);
+        std::copy(newStorage, newStorage + diff, newElems);
         delete[] this->elems;
         delete[] newStorage;
         this->elems = newElems;
