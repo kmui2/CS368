@@ -111,7 +111,7 @@ public:
      */
     iterator end() {
 	    // TODO: Implement this function.
-        return (T *)(&this-elems + 1) - 1;
+        return (T *)(&this->elems + 1) - 1;
     }
 
     /**
