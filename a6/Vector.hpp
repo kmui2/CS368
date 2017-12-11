@@ -234,7 +234,7 @@ public:
     T &at(std::size_t pos) {
 	    // TODO: Implement this function.
         if (pos < 0 || pos >= this->length) {
-            throw std::out_of_range();
+            throw std::out_of_range("Exception: Out of Range");
         }
         return this->elems[pos];
     }
@@ -248,7 +248,7 @@ public:
     const T &at(std::size_t pos) const {
 	    // TODO: Implement this function.
         if (pos < 0 || pos >= this->length) {
-            throw std::out_of_range();
+            throw std::out_of_range("Exception: Out of Range");
         }
         return this->elems[pos];
     }
